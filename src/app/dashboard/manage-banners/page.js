@@ -155,7 +155,7 @@ const ManageBannersPage = () => {
         console.log("Deleting old image from S3:", originalBanner.srcPath);
         try {
           // The delete function in s3Upload expects the Key, which is what srcPath should be
-          // await deleteFileFromS3(originalBanner.srcPath);
+          await deleteFileFromS3(originalBanner.srcPath);
         } catch (error) {
           console.error("Error deleting old image:", error);
           setApiError("Failed to delete previous image from storage. Continuing with update.");
@@ -170,7 +170,7 @@ const ManageBannersPage = () => {
           const fileExtension = bannerImageFile.name.split('.').pop();
           imagePath = `banners/${finalSrcPath}-CarsInUSA.${fileExtension}`;
         }
-        // finalSrcPath = await uploadFileToS3(bannerImageFile, imagePath);
+        finalSrcPath = await uploadFileToS3(bannerImageFile, imagePath);
       } catch (error) {
         console.error("Error uploading image:", error);
         setApiError(`Failed to upload image: ${error.message}. Please try again.`);
@@ -222,7 +222,7 @@ const ManageBannersPage = () => {
     try {
       if (bannerToDelete.srcPath) {
         try {
-          // await deleteFileFromS3(bannerToDelete.srcPath);
+          await deleteFileFromS3(bannerToDelete.srcPath);
         } catch (s3Error) {
           console.error(`Failed to delete image from S3:`, s3Error);
           setApiError(`Failed to delete image from storage: ${s3Error.message}. Database record not deleted.`);
