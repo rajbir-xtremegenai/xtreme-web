@@ -21,11 +21,11 @@ export default function PrivacyPage() {
   return (
     <div className="container mx-auto p-4 md:p-8 lg:p-12">
       <div className="prose max-w-none text-gray-800">
-        <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">Privacy Policy for CarsInUSA</h1>
+        <h1 className="text-3xl md:text-4xl font-bold text-center mb-6">Privacy Policy for XtremeGenAI</h1>
         <p className="text-center text-sm text-gray-600 mb-8">Effective Date: September 1, 2025</p>
 
         <p>
-          This Privacy Policy describes how CarsInUSA (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, shares, and protects information when you visit our website at www.carsinusa.com (the &quot;Site&quot;). By accessing or using the Site, you agree to the terms of this Privacy Policy. If you do not agree, please do not use the Site. This policy may be updated from time to time, and your continued use of the Site after changes constitutes acceptance of those updates. We encourage you to review this policy periodically.
+          This Privacy Policy describes how XtremeGenAI (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;) collects, uses, shares, and protects information when you visit our website at www.xtremegenai.com (the &quot;Site&quot;). By accessing or using the Site, you agree to the terms of this Privacy Policy. If you do not agree, please do not use the Site. This policy may be updated from time to time, and your continued use of the Site after changes constitutes acceptance of those updates. We encourage you to review this policy periodically.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-2">Scope</h2>
@@ -134,7 +134,7 @@ export default function PrivacyPage() {
         <p>
           For questions, requests, or concerns about this Privacy Policy, contact:
           <br />
-          CarsInUSA Team
+          XtremeGenAI Team
           <br />
           <a href="mailto:carsinusateam@gmail.com" className="text-blue-600 hover:underline">carsinusateam@gmail.com</a>
         </p>

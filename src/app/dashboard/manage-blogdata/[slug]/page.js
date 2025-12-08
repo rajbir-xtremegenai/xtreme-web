@@ -168,7 +168,7 @@ export default function ManageBlogBodyPage() {
                 const fileExtension = imageFile.name.split('.').pop();
                 let nameToCheck = imageUrl;
                 if (!nameToCheck.match(/\.(png|jpg|jpeg|webp)$/)) {
-                    nameToCheck = `blogsdata/${imageUrl}-CarsInUSA.${fileExtension}`;
+                    nameToCheck = `blogsdata/${imageUrl}-XtremeGenAI.${fileExtension}`;
                 }
 
                 if (dialogMode === 'edit' && currentData.imageUrl && currentData.imageUrl !== nameToCheck) {
@@ -462,7 +462,7 @@ export default function ManageBlogBodyPage() {
                                                 />
                                             </div>
                                             <div className="mt-4">
-                                                <label htmlFor="elementValue" className="block text-sm font-medium text-gray-700 mb-1">Bullet Points (comma-separated)*</label>
+                                                <label htmlFor="elementValue" className="block text-sm font-medium text-gray-700 mb-1">Bullet Points (double-comma-separated-with-space eg:- ,,)</label>
                                                 <textarea
                                                     name="elementValue"
                                                     id="elementValue"
@@ -471,6 +471,34 @@ export default function ManageBlogBodyPage() {
                                                     className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-700"
                                                     placeholder="e.g., point 1, point 2, point 3"
                                                     required
+                                                />
+                                            </div>
+                                        </div>
+                                    ) : currentData.elementType === 'link' ? (
+                                        <div>
+                                            <div>
+                                                <label htmlFor="altText" className="block text-sm font-medium text-gray-700 mb-1">Alt Text*</label>
+                                                <input
+                                                    type="text"
+                                                    name="altText"
+                                                    id="altText"
+                                                    value={currentData.altText}
+                                                    onChange={handleInputChange}
+                                                    className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-700"
+                                                    placeholder="e.g., A description of the image"
+                                                    required
+                                                />
+                                            </div>
+                                            <div>
+                                                <label htmlFor="elementValue" className="block text-sm font-medium text-gray-700 mb-1">Value*</label>
+                                                <textarea
+                                                    name="elementValue"
+                                                    id="elementValue"
+                                                    value={currentData.elementValue}
+                                                    onChange={handleInputChange}
+                                                    className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-700"
+                                                    placeholder={elementValueHints[currentData.elementType]}
+                                                    required={currentData.elementType !== 'imageUrl'}
                                                 />
                                             </div>
                                         </div>
@@ -539,7 +567,7 @@ export default function ManageBlogBodyPage() {
                                         <p className="text-sm text-gray-700 mt-1">
                                             <span className="font-medium">Alignment:</span> {data.alignment}
                                         </p>
-                                        {data.elementType === 'imageUrl' && (
+                                        {data.elementType === 'imageUrl' || data.elementType === 'link' && (
                                             <p className="text-sm text-gray-700 mt-1">
                                                 <span className="font-medium">Alt Text:</span> {data.altText}
                                             </p>

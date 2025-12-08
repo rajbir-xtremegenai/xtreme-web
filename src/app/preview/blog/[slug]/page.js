@@ -136,19 +136,19 @@ export default async function BlogPage({ params }) {
                   {element.elementValue}
                 </p>
               );
-            case 'link':
-              return (
-                <p key={element.id} className="mb-4">
-                  <a
-                    href={element.elementValue}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:underline"
-                  >
-                    {element.altText}
-                  </a>
-                </p>
-              );
+              case 'link':
+                return (
+                  <p key={element.id} className="mb-4">
+                    <a
+                      href={element.elementValue}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-blue-600 hover:underline"
+                    >
+                      {element.altText}
+                    </a>
+                  </p>
+                );
             case 'imageUrl':
               const priority = isFirstImage;
               if (isFirstImage) {

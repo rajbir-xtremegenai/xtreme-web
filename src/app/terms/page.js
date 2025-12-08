@@ -21,9 +21,9 @@ export default function TermsPage() {
   return (
     <div className="bg-white py-12 px-6 sm:px-8">
       <div className="container mx-auto max-w-4xl prose prose-lg text-gray-900">
-        <h1>Terms and Conditions for CarsInUSA</h1>
+        <h1>Terms and Conditions for XtremeGenAI</h1>
         <p><strong>Effective Date:</strong> September 1, 2025</p>
-        <p>These Terms and Conditions (&quot;Terms&quot;) govern your access to and use of the website www.carsinusa.com (the &quot;Site&quot;), operated by CarsInUSA (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). By accessing or using the Site, you agree to be bound by these Terms and our Privacy Policy. If you do not agree, do not use the Site. These Terms may be updated, and continued use after changes constitutes acceptance.</p>
+        <p>These Terms and Conditions (&quot;Terms&quot;) govern your access to and use of the website www.xtremegenai.com (the &quot;Site&quot;), operated by XtremeGenAI (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). By accessing or using the Site, you agree to be bound by these Terms and our Privacy Policy. If you do not agree, do not use the Site. These Terms may be updated, and continued use after changes constitutes acceptance.</p>
         <h2>Acceptance of Terms</h2>
         <p>Your use of the Site constitutes acceptance of these Terms. You represent that you are at least 18 years old and legally capable of entering into this agreement. If using the Site on behalf of an entity, you warrant your authority to bind that entity.</p>
         <h2>Description of Service</h2>
@@ -44,7 +44,7 @@ export default function TermsPage() {
           <li>A statement that the information in the notification is accurate, and under penalty of perjury, that the complaining party is authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</li>
         </ul>
         <p>Notifications of claimed infringement should be sent to our Designated Copyright Agent:</p>
-        <p>CarsInUSA Team<br />carsinusateam@gmail.com</p>
+        <p>XtremeGenAI Team<br />carsinusateam@gmail.com</p>
         <p>We will respond expeditiously to remove or disable access to the allegedly infringing material. We may terminate or suspend access for users who are repeat infringers. If we remove or disable access to material in response to a notice, we will make reasonable attempts to notify the affected user. The user may then submit a counter-notification to our Designated Copyright Agent, which must include:</p>
         <ul>
           <li>The user&apos;s physical or electronic signature.</li>
@@ -88,7 +88,7 @@ export default function TermsPage() {
         <h2>Changes to Terms</h2>
         <p>We may update these Terms at any time. Changes will be posted with the updated effective date. Significant changes may be notified prominently.</p>
         <h2>Contact Information</h2>
-        <p>For questions about these Terms, contact:<br />CarsInUSA Team<br />carsinusateam@gmail.com</p>
+        <p>For questions about these Terms, contact:<br />XtremeGenAI Team<br />carsinusateam@gmail.com</p>
       </div>
     </div>
   );

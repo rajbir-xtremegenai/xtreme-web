@@ -158,8 +158,8 @@ export default function ManageBlogsPage() {
 
     // if (dialogMode === 'add') {
     // if (dialogMode === 'add' && !newImageFile) {
-      // setApiError("Image file is mandatory for a new blog.");
-      // return;
+    // setApiError("Image file is mandatory for a new blog.");
+    // return;
     // }
 
     const authToken = localStorage.getItem('authToken');
@@ -176,7 +176,7 @@ export default function ManageBlogsPage() {
 
       if (newImageFile) {
         const fileExtension = newImageFile.name.split('.').pop();
-        const nameToCheck = `blogs/${imageUrl}-CarsInUSA.${fileExtension}`;
+        const nameToCheck = `blogs/${imageUrl}-XtremeGenAI.${fileExtension}`;
 
         const checkResponse = await fetch(`${apiBaseUrl}/api/blogs/check-image-url`, {
           method: 'POST',
@@ -199,7 +199,7 @@ export default function ManageBlogsPage() {
           const originalBlog = blogs.find(b => b.slug === currentBlog.slug);
           if (originalBlog && originalBlog.imageUrl) {
             try {
-              // await deleteFileFromS3(originalBlog.imageUrl);
+              await deleteFileFromS3(originalBlog.imageUrl);
             } catch (error) {
               console.error("Failed to delete old image from S3, continuing with upload...", error);
             }
@@ -208,9 +208,9 @@ export default function ManageBlogsPage() {
 
         let imagePath = imageUrl;
         if (!imageUrl.match(/\.(png|jpg|jpeg|webp)$/)) {
-          imagePath = 'blogs/' + imageUrl + "-CarsInUSA";
+          imagePath = 'blogs/' + imageUrl + "-XtremeGenAI";
         }
-        // finalImageUrl = await uploadFileToS3(newImageFile, imagePath);
+        finalImageUrl = await uploadFileToS3(newImageFile, imagePath);
       }
 
       const payload = {
@@ -382,7 +382,7 @@ export default function ManageBlogsPage() {
                     className="mt-1 block w-full px-4 py-2 border rounded-md"
                   />
                   <p className={`text-sm ${seoTitleLength > 60 ? 'text-red-500' : 'text-gray-500'}`}>
-                      {seoTitleLength}/60
+                    {seoTitleLength}/60
                   </p>
                 </div>
                 <div>
@@ -407,7 +407,7 @@ export default function ManageBlogsPage() {
                   className="mt-1 block w-full px-4 py-2 border rounded-md"
                 />
                 <p className={`text-sm ${seoDescriptionLength > 150 ? 'text-red-500' : 'text-gray-500'}`}>
-                    {seoDescriptionLength}/150
+                  {seoDescriptionLength}/150
                 </p>
               </div>
               {/* // active checkbox */}

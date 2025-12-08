@@ -128,7 +128,7 @@ const ManageBannersPage = () => {
 
     if (bannerImageFile) {
       const fileExtension = bannerImageFile.name.split('.').pop();
-      const imageName = `banners/${finalSrcPath}-CarsInUSA.${fileExtension}`;
+      const imageName = `banners/${finalSrcPath}-XtremeGenAI.${fileExtension}`;
       try {
         const originalBanner = banners.find(b => b.id === currentBanner.id);
         let imageUniquenessCheckNeeded = dialogMode === 'add' || (originalBanner && imageName !== originalBanner.srcPath);
@@ -168,7 +168,7 @@ const ManageBannersPage = () => {
         let imagePath = finalSrcPath;
         if (!imagePath.match(/\.(png|jpg|jpeg|webp)$/)) {
           const fileExtension = bannerImageFile.name.split('.').pop();
-          imagePath = `banners/${finalSrcPath}-CarsInUSA.${fileExtension}`;
+          imagePath = `banners/${finalSrcPath}-XtremeGenAI.${fileExtension}`;
         }
         finalSrcPath = await uploadFileToS3(bannerImageFile, imagePath);
       } catch (error) {

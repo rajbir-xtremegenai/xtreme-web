@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import ArticleMeta from '../../components/ArticleMeta';
 
 
-// const imageBaseUrl = process.env.NEXT_PUBLIC_Image_BASE_URL || 'https://d1yxobs1qe5t8w.cloudfront.net';
+const imageBaseUrl = process.env.NEXT_PUBLIC_Image_BASE_URL;
 
 // ✅ Generate SEO metadata
 // export async function generateMetadata({ params }) {
@@ -107,7 +107,7 @@ export default async function BlogPage({ params }) {
   }
 
   const { blog, blogData, faq } = blogPost.data;
-  // const blogImageUrl = `${imageBaseUrl}/${blog.imageUrl}`;
+  const blogImageUrl = `${imageBaseUrl}/${blog.imageUrl}`;
 
   // ✅ Filter subtitles for Highlights section
   const highlights = blogData.filter((element) => element.elementType === 'sub-title').map((element) => element.elementValue);
@@ -123,7 +123,7 @@ export default async function BlogPage({ params }) {
     },
     "headline": blog.seoTitle,
     "description": blog.seoDescription,
-    // "image": blogImageUrl,
+    "image": blogImageUrl,
     "author": {
       "@type": "Person",
       "name": blog.author || "Rajbir Saini",
@@ -210,8 +210,8 @@ export default async function BlogPage({ params }) {
         )}
 
         {/* Featured Image */}
-        {/* <figure className="my-6 flex flex-col justify-center items-center">
-          {/* <Image
+        <figure className="my-6 flex flex-col justify-center items-center">
+          <Image
             src={blogImageUrl}
             alt={blog.seoTitle}
             width={1200}
@@ -219,11 +219,11 @@ export default async function BlogPage({ params }) {
             className="rounded-lg shadow-md"
             priority={true}
             fetchPriority="high"
-          /> */}
-          {/* <figcaption className=" text-sm text-gray-500 mt-2">
+          />
+          <figcaption className=" text-sm text-gray-500 mt-2">
             {blog.seoDescription}
           </figcaption>
-        </figure>  */}
+        </figure>
         {/* */}
 
         {/* Blog Body */}
@@ -231,18 +231,18 @@ export default async function BlogPage({ params }) {
           {blogData.map((element) => {
             switch (element.elementType) {
               case 'title':
-              if (hasTitle) return null; // skip extra titles
-              hasTitle = true;
-              return (
-                <div key={element.id}>
-                  <h1 className="text-3xl font-bold text-gray-800 mb-2">{element.elementValue}</h1>
-                  <ArticleMeta
-                    author={blog.author}
-                    createdAt={blog.createdAt}
-                    updatedAt={blog.updatedAt}
-                  />
-                </div>
-              );
+                if (hasTitle) return null; // skip extra titles
+                hasTitle = true;
+                return (
+                  <div key={element.id}>
+                    <h1 className="text-3xl font-bold text-gray-800 mb-2">{element.elementValue}</h1>
+                    <ArticleMeta
+                      author={blog.author}
+                      createdAt={blog.createdAt}
+                      updatedAt={blog.updatedAt}
+                    />
+                  </div>
+                );
               case 'sub-title':
                 return (
                   <h2 key={element.id} className="text-2xl font-semibold mb-3 text-gray-800">
