@@ -1,5 +1,11 @@
 // This function will now send the file to the backend server for upload to S3
 export const uploadFileToS3 = async (file, customName = null) => {
+  if (!process.env.NEXT_PUBLIC_API_BASE_URL) {
+    throw new Error('Missing API environment variable: NEXT_PUBLIC_API_BASE_URL is not set.');
+  }
+
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY || '';
+
   const formData = new FormData();
   formData.append('file', file);
   if (customName) {
@@ -7,8 +13,12 @@ export const uploadFileToS3 = async (file, customName = null) => {
   }
 
   try {
-    const response = await fetch('/api/upload', { // Assuming '/api/upload' is the backend endpoint
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/s3/upload`, { // Assuming '/api/upload' is the backend endpoint
       method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': apiKey
+      },
       body: formData,
     });
 
@@ -31,11 +41,18 @@ export const deleteFileFromS3 = async (fileUrl) => {
     throw new Error('File URL is required.');
   }
 
+  if (!process.env.NEXT_PUBLIC_API_BASE_URL) {
+    throw new Error('Missing API environment variable: NEXT_PUBLIC_API_BASE_URL is not set.');
+  }
+
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY || '';
+
   try {
-    const response = await fetch('/api/delete', { // Assuming '/api/delete' is the backend endpoint
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/s3/delete`, { // Assuming '/api/delete' is the backend endpoint
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': apiKey
       },
       body: JSON.stringify({ fileUrl }),
     });
