@@ -26,14 +26,14 @@ const NewBlogCard = ({ blog, priority = false }) => {
       <div className="flex flex-col md:flex-row"> {/* Switch to column on mobile, row on md+ */}
         {/* Image Section */}
         <div className="relative w-full md:w-3/12 h-auto aspect-square m-2">
-          {/* <Image
+          <Image
             src={`${process.env.NEXT_PUBLIC_Image_BASE_URL}/${imageUrl}`}
             alt={altText || title}
             fill={true}
             sizes="(max-width: 768px) 100vw, 25vw"
             className="rounded-lg border border-gray-200 object-cover"
             priority={priority}
-          /> */}
+          />
         </div>
         {/* Text Content Section */}
         <div className="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-between"> {/* Full width on mobile, 2/3 on md+, more padding on desktop */}
