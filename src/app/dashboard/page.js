@@ -65,7 +65,7 @@ export default function Home() {
     // No need for window check here as isClient guard ensures it
     localStorage.removeItem('authToken');
     localStorage.removeItem('userData');
-    router.replace('/login'); // Use replace for logout as well
+    router.replace('/dashboard/login'); // Use replace for logout as well
   };
 
   // Main content is returned below, guarded by the loading/auth checks

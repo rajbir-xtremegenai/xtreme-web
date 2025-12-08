@@ -16,15 +16,21 @@ export const uploadFileToS3 = async (file, customName = null) => {
     const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/s3/upload`, { // Assuming '/api/upload' is the backend endpoint
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json',
         'Authorization': apiKey
       },
       body: formData,
     });
 
     if (!response.ok) {
-      const errorData = await response.json();
-      throw new Error(errorData.message || 'File upload failed');
+      const contentType = response.headers.get("content-type");
+      let errorMessage;
+      if (contentType && contentType.indexOf("application/json") !== -1) {
+        const errorData = await response.json();
+        errorMessage = errorData.message || 'File upload failed';
+      } else {
+        errorMessage = await response.text();
+      }
+      throw new Error(errorMessage);
     }
 
     const data = await response.json();
@@ -48,7 +54,7 @@ export const deleteFileFromS3 = async (fileUrl) => {
   const apiKey = process.env.NEXT_PUBLIC_API_KEY || '';
 
   try {
-    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/s3/delete`, { // Assuming '/api/delete' is the backend endpoint
+    const response = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/s3/delete`, { // Assuming '/api/s3/delete' is the backend endpoint
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
