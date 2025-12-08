@@ -44,7 +44,7 @@ const Footer = () => {
       </div>
       <SocialFollow textColor="text-white" />
       <div className="mt-8 border-t border-gray-600 pt-4 text-center text-sm text-gray-400">
-        <p>&copy; {new Date().getFullYear()} CARSINUSA. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} Xtreme Gen AI. All rights reserved.</p>
       </div>
     </footer>
   );

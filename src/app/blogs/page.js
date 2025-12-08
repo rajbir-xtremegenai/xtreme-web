@@ -6,9 +6,9 @@ import BlogSortSelect from '../components/BlogSortSelect';
 
 export async function generateMetadata() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const title = "Car News, Reviews, and Guides - CARSINUSA Blog";
-  const description = "Stay up-to-date with the latest car news, expert reviews, and helpful guides on the CARSINUSA blog. Your source for all things automotive.";
-  const keywords = "car blog, automotive news, car reviews, car guides, car maintenance tips, CARSINUSA blog";
+  const title = "Car News, Reviews, and Guides - Xtreme Gen AI Blog";
+  const description = "Stay up-to-date with the latest car news, expert reviews, and helpful guides on the Xtreme Gen AI blog. Your source for all things automotive.";
+  const keywords = "car blog, automotive news, car reviews, car guides, car maintenance tips, Xtreme Gen AI blog";
 
   return {
     title,
@@ -18,7 +18,7 @@ export async function generateMetadata() {
       title,
       description,
       url: `${baseUrl}/blogs`,
-      siteName: "CARSINUSA",
+      siteName: "Xtreme Gen AI",
       type: "website",
       images: [
         {
@@ -39,9 +39,9 @@ export async function generateMetadata() {
     alternates: {
       canonical: `${baseUrl}/blogs`,
     },
-    authors: [{ name: "CARSINUSA Team", url: baseUrl }],
-    creator: "CARSINUSA",
-    publisher: "CARSINUSA",
+    authors: [{ name: "Xtreme Gen AI Team", url: baseUrl }],
+    creator: "Xtreme Gen AI Team",
+    publisher: "Xtreme Gen AI",
     category: "Automobile",
   };
 }

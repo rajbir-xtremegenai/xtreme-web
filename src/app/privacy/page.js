@@ -1,14 +1,14 @@
 export async function generateMetadata() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   return {
-    title: "Privacy Policy - CARSINUSA",
-    description: "Read the privacy policy for CARSINUSA to understand how we collect, use, and protect your data.",
+    title: "Privacy Policy - Xtreme Gen AI",
+    description: "Read the privacy policy for Xtreme Gen AI to understand how we collect, use, and protect your data.",
     metadataBase: new URL(baseUrl),
     openGraph: {
-      title: "Privacy Policy - CARSINUSA",
+      title: "Privacy Policy - Xtreme Gen AI",
       description: "Our privacy policy outlines our commitment to protecting your personal information.",
       url: `${baseUrl}/privacy`,
-      siteName: "CARSINUSA",
+      siteName: "Xtreme Gen AI",
       type: "website",
     },
     alternates: {

@@ -1,14 +1,14 @@
 export async function generateMetadata() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   return {
-    title: "Terms and Conditions - CARSINUSA",
-    description: "Read the terms and conditions for using the CARSINUSA website.",
+    title: "Terms and Conditions - Xtreme Gen AI",
+    description: "Read the terms and conditions for using the Xtreme Gen AI website.",
     metadataBase: new URL(baseUrl),
     openGraph: {
-      title: "Terms and Conditions - CARSINUSA",
-      description: "Our terms and conditions for using the CARSINUSA website.",
+      title: "Terms and Conditions - Xtreme Gen AI",
+      description: "Our terms and conditions for using the Xtreme Gen AI website.",
       url: `${baseUrl}/terms`,
-      siteName: "CARSINUSA",
+      siteName: "Xtreme Gen AI",
       type: "website",
     },
     alternates: {
@@ -69,7 +69,7 @@ export default function TermsPage() {
         <p>Violations may result in access termination and legal action.</p>
         <h2>Disclaimers and Warranties</h2>
         <p>THE SITE AND ALL CONTENT ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ACCURACY, COMPLETENESS, RELIABILITY, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE CONTENT IS ERROR-FREE, TIMELY, SECURE, OR UNINTERRUPTED.</p>
-        <p>#CRUCIAL DISCLAIMER ON ACCURACY: THE INFORMATION PROVIDED BY CARSINUSA.COM IS FOR GENERAL INFORMATIONAL PURPOSES ONLY. WHILE WE STRIVE FOR ACCURACY, CAR INFORMATION (INCLUDING SPECIFICATIONS, FEATURES, DIMENSIONS, AND OTHER DATA) IS SOURCED FROM PUBLICLY AVAILABLE INFORMATION AND IS SUBJECT TO POTENTIAL HUMAN ERRORS IN TRANSCRIPTION, INTERPRETATION, OR UPDATES. THIS DATA MAY CONTAIN INACCURACIES, OMISSIONS, OR BE OUT OF DATE.</p>
+        <p>#CRUCIAL DISCLAIMER ON ACCURACY: THE INFORMATION PROVIDED BY Xtreme Gen AI.COM IS FOR GENERAL INFORMATIONAL PURPOSES ONLY. WHILE WE STRIVE FOR ACCURACY, CAR INFORMATION (INCLUDING SPECIFICATIONS, FEATURES, DIMENSIONS, AND OTHER DATA) IS SOURCED FROM PUBLICLY AVAILABLE INFORMATION AND IS SUBJECT TO POTENTIAL HUMAN ERRORS IN TRANSCRIPTION, INTERPRETATION, OR UPDATES. THIS DATA MAY CONTAIN INACCURACIES, OMISSIONS, OR BE OUT OF DATE.</p>
         <p>UNDER NO CIRCUMSTANCE SHALL WE HAVE ANY LIABILITY TO YOU FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF THE SITE OR RELIANCE ON ANY INFORMATION PROVIDED. YOUR USE OF THE SITE AND YOUR RELIANCE ON ANY INFORMATION IS SOLELY AT YOUR OWN RISK. YOU ARE STRONGLY ADVISED TO VERIFY ALL INFORMATION DIRECTLY WITH AN AUTHORIZED DEALERSHIP OR THE OFFICIAL MANUFACTURER BEFORE MAKING ANY DECISIONS.</p>
         <p>We are not affiliated with, endorsed by, or sponsored by any car brands mentioned. Content does not constitute official representations, professional advice, or endorsements. Images are used for illustrative and editorial purposes under fair use principles; we do not claim ownership and will remove any upon a valid request from a rights holder.</p>
         <h2>Limitation of Liability</h2>
