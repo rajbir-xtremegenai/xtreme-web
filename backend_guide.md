@@ -104,3 +104,24 @@ The backend server will require the following environment variables to be set:
 - `CLOUDFRONT_DIST_ID`: The ID of your CloudFront distribution.
 
 This guide should provide all the necessary information for the backend team to implement the required changes.
+
+## 4. Security Considerations
+
+To ensure the security of the file upload process, the backend must implement the following checks:
+
+-   **Authentication and Authorization:**
+    -   The `/api/upload` and `/api/delete` endpoints must be protected. Only authenticated and authorized users should be allowed to upload or delete files.
+    -   Implement session-based authentication, token-based authentication (e.g., JWT), or another appropriate mechanism to verify the user's identity.
+
+-   **File Type Validation:**
+    -   Do not trust the `Content-Type` header sent by the client, as it can be easily spoofed.
+    -   On the server, validate the file type by inspecting its content (e.g., using magic numbers). Use libraries like `file-type` for this purpose.
+    -   Maintain a strict allowlist of permitted file types (e.g., `image/jpeg`, `image/png`). Reject any files that do not match.
+
+-   **File Size Limits:**
+    -   Implement a reasonable file size limit to prevent denial-of-service (DoS) attacks where an attacker uploads very large files to exhaust server resources.
+    -   Configure this limit in your server and in the `multer` setup.
+
+-   **Filename Sanitization:**
+    -   Do not use the user-provided filename directly. An attacker could provide a malicious filename (e.g., `../../etc/passwd`).
+    -   The current logic of generating a unique filename (e.g., using UUID) is a good practice. If you need to preserve the original filename, sanitize it thoroughly by removing any special characters or path traversal sequences.
