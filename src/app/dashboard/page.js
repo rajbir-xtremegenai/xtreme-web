@@ -19,7 +19,7 @@ export default function Home() {
 
     const authToken = localStorage.getItem('authToken');
     if (!authToken) {
-      router.replace('/login'); // Use replace to avoid adding to history stack
+      router.replace('/dashboard/login'); // Use replace to avoid adding to history stack
     } else {
       setIsCheckingAuth(false); // User is logged in, proceed to render page
     }
