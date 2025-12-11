@@ -1,26 +1,67 @@
 @import "tailwindcss";
 
+@theme {
+  --font-lexend: var(--font-lexend), sans-serif;
+  --font-outfit: var(--font-outfit), sans-serif;
+  --color-clr1: #ad4aea;
+  --color-clr2: #3300ff;
+  --color-bg-dark: #07071b;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #dae8f7;
-    --foreground: #ededed;
-  }
+  --background: #07071b;
+  --foreground: #ffffff;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-lexend);
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+/* Animations */
+@keyframes expand {
+    0% { scale: 1.1; }
+    50% { scale: 1; }
+    100% { scale: 1.1; }
+}
+
+@keyframes ringVibration {
+    0% { transform: rotate(0deg) scale(1); }
+    15% { transform: rotate(5deg) scale(1.05); }
+    30% { transform: rotate(-5deg) scale(1.1); }
+    45% { transform: rotate(5deg) scale(1.15); }
+    60% { transform: rotate(-5deg) scale(1.1); }
+    75% { transform: rotate(5deg) scale(1.05); }
+    90% { transform: rotate(-5deg) scale(1); }
+    100% { transform: rotate(0deg) scale(1); }
+}
+
+@keyframes scroll-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* Utility classes for animations */
+.animate-ring-vibration {
+    animation: ringVibration 0.8s ease-in-out infinite;
+}
+
+.animate-scroll-left {
+    animation: scroll-left 25s linear infinite;
+}
+
+.text-shadow {
+    text-shadow: 0 2px 4px rgba(0,0,0,0.10);
+}
+
+.text-shadow-strong {
+    text-shadow: 1px 1px 20px rgba(0, 0, 0, 0.5);
 }
