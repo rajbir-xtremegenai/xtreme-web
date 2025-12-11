@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Blogs = () => {
+const Usecase = () => {
     return (
         <div className="py-20 text-center text-gray-500">
-            this is the Blogs component
+            this is the Usecase component
         </div>
     );
 };
 
-export default Blogs;
+export default Usecase;

@@ -1,26 +1,39 @@
 @import "tailwindcss";
 
+@theme {
+  --font-lexend: var(--font-lexend);
+  --font-outfit: var(--font-outfit);
+  --color-clr1: #ad4aea;
+  --color-clr2: #3300ff;
+  --color-background: #07071b;
+  --color-foreground: #ffffff;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #dae8f7;
-    --foreground: #ededed;
-  }
+  --background: #07071b;
+  --foreground: #ffffff;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-lexend), sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+html {
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Custom Utilities based on provided CSS */
+.main {
+  @apply w-full overflow-hidden py-[100px] flex items-center justify-center relative min-h-screen bg-transparent;
+}
+
+@media (max-width: 700px) {
+  .main {
+    @apply min-h-[10vh] pt-[120px];
+  }
 }
