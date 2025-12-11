@@ -1,5 +1,5 @@
 export async function generateMetadata() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.xtremegenai.com";
   return {
     title: "Privacy Policy - Xtreme Gen AI",
     description: "Read the privacy policy for Xtreme Gen AI to understand how we collect, use, and protect your data.",

@@ -1,5 +1,5 @@
 export async function generateMetadata() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.xtremegenai.com";
   return {
     title: "Terms and Conditions - Xtreme Gen AI",
     description: "Read the terms and conditions for using the Xtreme Gen AI website.",
