@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="relative bg-[var(--color-bg-dark)] text-white overflow-hidden selection:bg-[var(--color-clr1)] selection:text-white">
 
-      <div className="relative w-full min-h-screen flex items-center justify-center pt-24 md:pt-0" id='main'>
+      <div className="relative w-full min-h-screen flex items-center justify-center pt-24 md:pt-0 z-0" id='main'>
         <Hero />
         <HeadImg />
       </div>
