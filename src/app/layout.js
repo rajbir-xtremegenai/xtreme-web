@@ -1,7 +1,6 @@
 import { Lexend, Outfit } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
-import Watermark from "./components/Watermark";
 import Script from "next/script";
 
 const lexend = Lexend({
@@ -73,9 +72,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${lexend.variable} ${outfit.variable} antialiased`}>
         <Navbar />
-        {/* Website by The Anshuman Singh - https://theanshumansingh.com */}
         {children}
-        <Watermark />
       </body>
     </html>
   );
