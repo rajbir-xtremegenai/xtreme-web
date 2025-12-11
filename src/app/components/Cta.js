@@ -1,11 +1,32 @@
 import React from 'react'
+import Link from 'next/link'
 
 function Cta() {
   return (
-    <div className="py-20 text-center bg-gradient-to-r from-[var(--color-clr1)] to-[var(--color-clr2)] mx-4 rounded-3xl my-10">
-       <h2 className="text-4xl font-bold text-white mb-8">CTA Component</h2>
-       <p className="text-white">Call to action section placeholder</p>
-    </div>
+    <section className="flex flex-col items-center px-4 sm:px-6 lg:px-8 py-16">
+      <span className="mb-4 rounded-full bg-[#ae00ff2b] px-5 py-1 text-xs font-medium uppercase tracking-[0.16em] text-[#6e63ff] backdrop-blur-md">
+        Get Started
+      </span>
+
+      <div className="w-full max-w-6xl rounded-[28px] border border-white/5 bg-[#2b2b33]/70 px-6 py-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:px-12 lg:px-16">
+        <h1 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[42px]">
+          Your AI Journey,{' '}
+          <span className="bg-gradient-to-r from-[#cf4aea] to-[#3300ff] bg-clip-text text-transparent">
+            Supercharged.
+          </span>
+        </h1>
+        <p className="mt-4 text-base font-light text-gray-300 sm:text-lg">
+          Ready to Converse with Tomorrow? Xtreme Gen AI is Here.
+        </p>
+
+        <Link
+          href="/contact"
+          className="mt-8 inline-flex items-center justify-center rounded-full bg-gradient-to-r from-[#cf4aea] via-[#a800ca] to-[#6f00ff] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#6f00ff40] transition hover:translate-y-[-1px] hover:shadow-[#6f00ff60] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6f00ff]"
+        >
+          Contact Us &amp; Get Started
+        </Link>
+      </div>
+    </section>
   )
 }
 

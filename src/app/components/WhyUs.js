@@ -19,8 +19,6 @@ const NumberedIcon = ({ number }) => {
       >
         {number}
       </div>
-
-
     </div>
   );
 };
