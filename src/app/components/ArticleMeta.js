@@ -21,9 +21,9 @@ const ArticleMeta = ({ author, createdAt, updatedAt }) => {
   const showUpdated = publishedDate && updatedDate && publishedDate !== updatedDate;
 
   return (
-    <div className="mb-4 text-sm text-gray-600 border-b pb-4">
+    <div className="mb-4 text-sm text-gray-300 border-b border-gray-700 pb-4">
       {author && (
-        <p className="font-semibold text-gray-800">
+        <p className="font-semibold text-gray-100">
           By {author}
         </p>
       )}
@@ -36,7 +36,7 @@ const ArticleMeta = ({ author, createdAt, updatedAt }) => {
         {showUpdated && (
           <>
             {/* Hide separator on mobile, show on sm and above */}
-            <span className="hidden sm:inline text-gray-400">|</span>
+            <span className="hidden sm:inline text-gray-500">|</span>
             <p>
               Last Updated: {updatedDate}
             </p>

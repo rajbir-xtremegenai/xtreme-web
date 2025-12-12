@@ -77,23 +77,15 @@ function WhyUs() {
 
   return (
     // Outer container with dark background and padding
-    <section className="py-20 bg-black min-h-screen flex flex-col items-center">
+    <section className="py-20 bg-transparent flex flex-col items-center">
       <div className="w-full max-w-7xl px-4 md:px-8 lg:px-12">
-        {/* Centered "WHY US?" header with custom styling */}
-        <div className="text-center mb-16">
-          <span
-            className="
-              text-xs uppercase tracking-widest font-medium 
-              text-purple-400 
-              px-6 py-2 
-              rounded-full 
-              bg-purple-900/40 
-              shadow-lg shadow-purple-900/50
-              inline-block
-            "
-          >
+
+
+        {/* Header Pill */}
+        <div className="flex justify-center mb-8">
+          <h2 className="text-center py-1.5 px-5 bg-[rgba(174,0,255,0.17)] text-[rgb(110,99,255)] text-sm font-normal uppercase rounded-full mx-auto mb-1.5 mt-5 block w-max">
             Why Us?
-          </span>
+          </h2>
         </div>
 
         {/* 4-Column Grid for the feature cards */}

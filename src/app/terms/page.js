@@ -2,11 +2,11 @@ export async function generateMetadata() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   return {
     title: "Terms and Conditions - Xtreme Gen AI",
-    description: "Read the terms and conditions for using the Xtreme Gen AI website.",
-    metadataBase: new URL(baseUrl),
+    description: "Read the terms and conditions for using Xtreme Gen AI's website, services, and AI-powered solutions.",
+    // metadataBase: new URL(baseUrl),
     openGraph: {
       title: "Terms and Conditions - Xtreme Gen AI",
-      description: "Our terms and conditions for using the Xtreme Gen AI website.",
+      description: "Our terms and conditions for using the Xtreme Gen AI website and services.",
       url: `${baseUrl}/terms`,
       siteName: "Xtreme Gen AI",
       type: "website",
@@ -17,79 +17,369 @@ export async function generateMetadata() {
   };
 }
 
+const sections = [
+  {
+    title: "1. Introduction",
+    body: [
+      `Welcome to Xtreme Gen AI Private Limited ("Company," "we," "us," or "our"). These Terms and Conditions ("Terms") govern your access to and use of our website located at <a href="https://xtremegenai.com" class="text-purple-300 underline decoration-purple-300/50 underline-offset-4 transition hover:text-purple-200">https://xtremegenai.com</a>, our AI-powered tools, software solutions, applications, and related services (collectively, the "Services").`,
+      `By accessing or using our Services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our Services.`,
+    ],
+  },
+  {
+    title: "2. Acceptance of Terms",
+    body: [
+      "By accessing, browsing, or using our Services, you acknowledge that you have read, understood, and agree to be bound by these Terms and all applicable laws and regulations. If you are using our Services on behalf of an organization, you represent and warrant that you have the authority to bind that organization to these Terms.",
+    ],
+  },
+  {
+    title: "3. Eligibility",
+    body: [
+      "You must be at least 18 years old or the age of majority in your jurisdiction to use our Services. By using our Services, you represent and warrant that:",
+    ],
+    list: [
+      "You are at least 18 years old",
+      "You have the legal capacity to enter into a binding agreement",
+      "You will comply with all applicable laws and regulations",
+      "You will not use our Services for any illegal or unauthorized purpose",
+    ],
+  },
+  {
+    title: "4. Description of Services",
+    body: [
+      "Xtreme Gen AI provides AI-powered tools, software solutions, content creation services, customer support solutions, data entry services, and related technology services. We reserve the right to modify, suspend, or discontinue any aspect of our Services at any time without prior notice.",
+    ],
+  },
+  {
+    title: "5. User Accounts and Registration",
+    subSections: [
+      {
+        subTitle: "a) Account Creation",
+        list: [
+          "You may be required to create an account to access certain features of our Services",
+          "You agree to provide accurate, current, and complete information during registration",
+          "You are responsible for maintaining the confidentiality of your account credentials",
+          "You agree to notify us immediately of any unauthorized access to your account",
+        ],
+      },
+      {
+        subTitle: "b) Account Security",
+        list: [
+          "You are solely responsible for all activities that occur under your account",
+          "You must use a strong, unique password for your account",
+          "You must not share your account credentials with any third party",
+          "We are not liable for any loss or damage arising from unauthorized use of your account",
+        ],
+      },
+    ],
+  },
+  {
+    title: "6. Acceptable Use Policy",
+    body: [
+      "You agree not to use our Services in any way that:",
+    ],
+    list: [
+      "Violates any applicable laws, regulations, or third-party rights",
+      "Infringes upon intellectual property rights of others",
+      "Is fraudulent, deceptive, or misleading",
+      "Transmits malicious code, viruses, or harmful software",
+      "Attempts to gain unauthorized access to our systems or networks",
+      "Interferes with or disrupts the Services or servers connected to the Services",
+      "Uses automated systems to access the Services without our prior written consent",
+      "Collects or stores personal data about other users without their consent",
+      "Impersonates any person or entity or misrepresents your affiliation with any person or entity",
+      "Is used for any illegal or unauthorized purpose",
+    ],
+  },
+  {
+    title: "7. Intellectual Property Rights",
+    subSections: [
+      {
+        subTitle: "a) Our Intellectual Property",
+        list: [
+          "All content, features, functionality, and technology of our Services are owned by Xtreme Gen AI or its licensors",
+          "This includes but is not limited to text, graphics, logos, icons, images, audio clips, software, and code",
+          "Our Services are protected by copyright, trademark, patent, and other intellectual property laws",
+          "You may not copy, modify, distribute, sell, or lease any part of our Services without our prior written consent",
+        ],
+      },
+      {
+        subTitle: "b) Your Content",
+        list: [
+          "You retain ownership of any content you submit, post, or display through our Services",
+          "By submitting content, you grant us a worldwide, non-exclusive, royalty-free license to use, reproduce, and distribute your content as necessary to provide the Services",
+          "You represent and warrant that you have all necessary rights to grant us this license",
+          "You are solely responsible for the content you submit and its accuracy",
+        ],
+      },
+    ],
+  },
+  {
+    title: "8. AI-Generated Content",
+    body: [
+      "Our Services may utilize artificial intelligence to generate content. You understand and agree that:",
+    ],
+    list: [
+      "AI-generated content may not always be accurate, complete, or error-free",
+      "You are responsible for reviewing and verifying any AI-generated content before use",
+      "We do not guarantee the accuracy, completeness, or suitability of AI-generated content",
+      "You may not use AI-generated content in a way that violates applicable laws or third-party rights",
+      "AI-generated content should not be used as a substitute for professional advice",
+    ],
+  },
+  {
+    title: "9. Fees and Payment",
+    subSections: [
+      {
+        subTitle: "a) Pricing",
+        list: [
+          "Some Services may require payment of fees as specified on our website or in a separate agreement",
+          "We reserve the right to modify our pricing at any time with reasonable notice",
+          "All fees are quoted in the currency specified at the time of purchase",
+        ],
+      },
+      {
+        subTitle: "b) Payment Terms",
+        list: [
+          "Payment terms will be specified in your service agreement or invoice",
+          "You agree to pay all applicable fees in accordance with the payment terms",
+          "All fees are non-refundable unless otherwise specified or required by law",
+          "We reserve the right to suspend or terminate Services for non-payment",
+        ],
+      },
+      {
+        subTitle: "c) Taxes",
+        list: [
+          "You are responsible for paying all applicable taxes, duties, and fees",
+          "All prices are exclusive of applicable taxes unless otherwise stated",
+        ],
+      },
+    ],
+  },
+  {
+    title: "10. Privacy and Data Protection",
+    body: [
+      "Your use of our Services is also governed by our Privacy Policy, which is incorporated into these Terms by reference. By using our Services, you consent to the collection, use, and disclosure of your information as described in our Privacy Policy.",
+    ],
+  },
+  {
+    title: "11. Third-Party Services and Links",
+    body: [
+      "Our Services may contain links to third-party websites, services, or resources. We are not responsible for the availability, accuracy, or content of such third-party services. Your interactions with third-party services are solely between you and the third party.",
+    ],
+  },
+  {
+    title: "12. Disclaimers and Warranties",
+    body: [
+      "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, OUR SERVICES ARE PROVIDED \"AS IS\" AND \"AS AVAILABLE\" WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, NON-INFRINGEMENT, OR ACCURACY.",
+      "We do not warrant that our Services will be uninterrupted, error-free, secure, or free from viruses or other harmful components. We do not guarantee the accuracy, completeness, or reliability of any content or information provided through our Services.",
+    ],
+  },
+  {
+    title: "13. Limitation of Liability",
+    body: [
+      "TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL XTREME GEN AI, ITS OFFICERS, DIRECTORS, EMPLOYEES, AGENTS, OR AFFILIATES BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING BUT NOT LIMITED TO LOSS OF PROFITS, DATA, USE, GOODWILL, OR OTHER INTANGIBLE LOSSES, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF OUR SERVICES.",
+      "Our total liability for any claims arising out of or related to these Terms or our Services shall not exceed the amount you paid us in the twelve (12) months preceding the claim, or one hundred dollars ($100), whichever is greater.",
+    ],
+  },
+  {
+    title: "14. Indemnification",
+    body: [
+      "You agree to indemnify, defend, and hold harmless Xtreme Gen AI, its officers, directors, employees, agents, and affiliates from and against any and all claims, damages, losses, liabilities, costs, and expenses (including reasonable attorneys' fees) arising out of or related to:",
+    ],
+    list: [
+      "Your use of our Services",
+      "Your violation of these Terms",
+      "Your violation of any applicable laws or regulations",
+      "Your infringement of any third-party rights",
+      "Any content you submit, post, or transmit through our Services",
+    ],
+  },
+  {
+    title: "15. Termination",
+    subSections: [
+      {
+        subTitle: "a) Termination by You",
+        list: [
+          "You may stop using our Services at any time",
+          "You may close your account at any time by contacting us",
+        ],
+      },
+      {
+        subTitle: "b) Termination by Us",
+        list: [
+          "We may suspend or terminate your access to our Services at any time, with or without cause or notice",
+          "We may terminate your access if you violate these Terms or engage in fraudulent, illegal, or harmful activities",
+          "Upon termination, your right to use the Services will immediately cease",
+        ],
+      },
+      {
+        subTitle: "c) Effect of Termination",
+        list: [
+          "Upon termination, all rights granted to you under these Terms will immediately cease",
+          "Sections of these Terms that by their nature should survive termination will survive, including but not limited to intellectual property rights, disclaimers, limitation of liability, and indemnification",
+        ],
+      },
+    ],
+  },
+  {
+    title: "16. Modifications to Terms",
+    body: [
+      "We reserve the right to modify these Terms at any time. We will provide notice of material changes by posting the updated Terms on our website and updating the \"Last Updated\" date. Your continued use of our Services after such modifications constitutes your acceptance of the updated Terms.",
+    ],
+  },
+  {
+    title: "17. Governing Law and Dispute Resolution",
+    subSections: [
+      {
+        subTitle: "a) Governing Law",
+        list: [
+          "These Terms shall be governed by and construed in accordance with the laws of India",
+          "Any disputes arising out of or relating to these Terms shall be subject to the exclusive jurisdiction of the courts located in India",
+        ],
+      },
+      {
+        subTitle: "b) Dispute Resolution",
+        list: [
+          "In the event of any dispute, you agree to first contact us to attempt to resolve the dispute informally",
+          "If we are unable to resolve the dispute informally, it shall be resolved through binding arbitration in accordance with the Arbitration and Conciliation Act, 2015",
+          "Notwithstanding the above, we may seek injunctive relief in any court of competent jurisdiction to protect our intellectual property rights",
+        ],
+      },
+    ],
+  },
+  {
+    title: "18. Severability",
+    body: [
+      "If any provision of these Terms is found to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full force and effect. The invalid, illegal, or unenforceable provision shall be modified to the minimum extent necessary to make it valid, legal, and enforceable.",
+    ],
+  },
+  {
+    title: "19. Entire Agreement",
+    body: [
+      "These Terms, together with our Privacy Policy and any other legal notices published by us on our website, constitute the entire agreement between you and Xtreme Gen AI regarding your use of our Services and supersede all prior or contemporaneous communications and proposals, whether oral or written, between you and Xtreme Gen AI.",
+    ],
+  },
+  {
+    title: "20. Waiver",
+    body: [
+      "Our failure to enforce any right or provision of these Terms shall not constitute a waiver of such right or provision. Any waiver of any provision of these Terms will be effective only if in writing and signed by an authorized representative of Xtreme Gen AI.",
+    ],
+  },
+];
+
 export default function TermsPage() {
   return (
-    <div className="bg-white py-12 px-6 sm:px-8">
-      <div className="container mx-auto max-w-4xl prose prose-lg text-gray-900">
-        <h1>Terms and Conditions for XtremeGenAI</h1>
-        <p><strong>Effective Date:</strong> September 1, 2025</p>
-        <p>These Terms and Conditions (&quot;Terms&quot;) govern your access to and use of the website www.xtremegenai.com (the &quot;Site&quot;), operated by XtremeGenAI (&quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). By accessing or using the Site, you agree to be bound by these Terms and our Privacy Policy. If you do not agree, do not use the Site. These Terms may be updated, and continued use after changes constitutes acceptance.</p>
-        <h2>Acceptance of Terms</h2>
-        <p>Your use of the Site constitutes acceptance of these Terms. You represent that you are at least 18 years old and legally capable of entering into this agreement. If using the Site on behalf of an entity, you warrant your authority to bind that entity.</p>
-        <h2>Description of Service</h2>
-        <p>The Site is a blog providing informational content about cars from popular brands, including specifications, features (e.g., interior, safety, exterior, comfort &amp; convenience), body dimensions &amp; capacity, engine and transmission details, and images. All content is for general informational and educational purposes only. We do not sell vehicles, facilitate transactions, or act as a dealer, broker, or agent for any brand. Content is compiled from publicly available sources and may include human-generated summaries or interpretations.</p>
-        <h2>User Accounts</h2>
-        <p>The Site does not currently require user accounts. If features like comments or subscriptions are added, you may need to provide accurate information and maintain security. You are responsible for all activities under your account.</p>
-        <h2>Content Ownership and Intellectual Property</h2>
-        <p>All original content on the Site (e.g., text, layouts, designs) is owned by us or our licensors and protected by copyright, trademark, and other intellectual property laws. Car information (e.g., specs, features) is factual data derived from public sources and is not claimed as proprietary. We do not use brand logos, slogans, or themes. Images are sourced from brand media sites intended for news, blogs, and influencers, used under fair use principles for informational purposes. We believe in good faith that our use of such images and factual data constitutes fair use or is otherwise permitted, but we will promptly remove any content upon receipt of a valid request or notice from the rights holder.</p>
-        <p>You are granted a limited, non-exclusive, revocable, non-transferable license to access and view content for personal, non-commercial use. You may not copy, modify, distribute, sell, or create derivative works from Site content without our written permission. Any unauthorized use terminates this license.</p>
-        <h2>Copyright Complaints (DMCA Policy)</h2>
-        <p>We respect the intellectual property rights of others and comply with the Digital Millennium Copyright Act (DMCA), 17 U.S.C. &sect; 512. If you are a copyright owner or an agent thereof and believe that any content on the Site infringes upon your copyrights, you may submit a notification pursuant to the DMCA by providing our Designated Copyright Agent with the following information in writing:</p>
-        <ul>
-          <li>A physical or electronic signature of a person authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</li>
-          <li>Identification of the copyrighted work claimed to have been infringed, or, if multiple copyrighted works at a single online site are covered by a single notification, a representative list of such works at that site.</li>
-          <li>Identification of the material that is claimed to be infringing or to be the subject of infringing activity and that is to be removed or access to which is to be disabled, and information reasonably sufficient to permit us to locate the material.</li>
-          <li>Information reasonably sufficient to permit us to contact the complaining party, such as an address, telephone number, and, if available, an electronic mail address at which the complaining party may be contacted.</li>
-          <li>A statement that the complaining party has a good faith belief that use of the material in the manner complained of is not authorized by the copyright owner, its agent, or the law.</li>
-          <li>A statement that the information in the notification is accurate, and under penalty of perjury, that the complaining party is authorized to act on behalf of the owner of an exclusive right that is allegedly infringed.</li>
-        </ul>
-        <p>Notifications of claimed infringement should be sent to our Designated Copyright Agent:</p>
-        <p>XtremeGenAI Team<br />carsinusateam@gmail.com</p>
-        <p>We will respond expeditiously to remove or disable access to the allegedly infringing material. We may terminate or suspend access for users who are repeat infringers. If we remove or disable access to material in response to a notice, we will make reasonable attempts to notify the affected user. The user may then submit a counter-notification to our Designated Copyright Agent, which must include:</p>
-        <ul>
-          <li>The user&apos;s physical or electronic signature.</li>
-          <li>Identification of the material that has been removed or to which access has been disabled and the location at which the material appeared before it was removed or access to it was disabled.</li>
-          <li>A statement under penalty of perjury that the user has a good faith belief that the material was removed or disabled as a result of mistake or misidentification.</li>
-          <li>The user&apos;s name, address, and telephone number(s).</li>
-          <li>A statement that the user consents to the jurisdiction of the Federal District Court for the judicial district in which the address is located, or if the user&apos;s address is outside of the United States, for any judicial district in which we may be found, and that the user will accept service of process from the person who provided notification or an agent of such person.</li>
-        </ul>
-        <p>Upon receipt of a valid counter-notification, we will promptly provide the complaining party with a copy and inform them that we will replace the removed material or cease disabling access to it within 10-14 business days unless we receive notice that the complaining party has filed a court action seeking an injunction.</p>
-        <h2>User-Generated Content</h2>
-        <p>If the Site allows comments or submissions, you grant us a perpetual, irrevocable, royalty-free, worldwide license to use, modify, and display such content. You warrant that your content does not infringe third-party rights and is not unlawful, defamatory, or obscene. We may remove or edit content at our discretion but are not obligated to monitor it.</p>
-        <h2>Prohibited Conduct</h2>
-        <p>You agree not to:</p>
-        <ul>
-          <li>Use the Site for illegal purposes or in violation of laws.</li>
-          <li>Copy, scrape, or harvest content systematically.</li>
-          <li>Post harmful, false, or infringing material.</li>
-          <li>Interfere with Site functionality (e.g., viruses, overloads).</li>
-          <li>Impersonate others or misrepresent affiliations.</li>
-          <li>Use content commercially without permission.</li>
-        </ul>
-        <p>Violations may result in access termination and legal action.</p>
-        <h2>Disclaimers and Warranties</h2>
-        <p>THE SITE AND ALL CONTENT ARE PROVIDED &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; WITHOUT WARRANTIES OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO ACCURACY, COMPLETENESS, RELIABILITY, MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, OR NON-INFRINGEMENT. WE DO NOT WARRANT THAT THE CONTENT IS ERROR-FREE, TIMELY, SECURE, OR UNINTERRUPTED.</p>
-        <p>#CRUCIAL DISCLAIMER ON ACCURACY: THE INFORMATION PROVIDED BY Xtreme Gen AI.COM IS FOR GENERAL INFORMATIONAL PURPOSES ONLY. WHILE WE STRIVE FOR ACCURACY, CAR INFORMATION (INCLUDING SPECIFICATIONS, FEATURES, DIMENSIONS, AND OTHER DATA) IS SOURCED FROM PUBLICLY AVAILABLE INFORMATION AND IS SUBJECT TO POTENTIAL HUMAN ERRORS IN TRANSCRIPTION, INTERPRETATION, OR UPDATES. THIS DATA MAY CONTAIN INACCURACIES, OMISSIONS, OR BE OUT OF DATE.</p>
-        <p>UNDER NO CIRCUMSTANCE SHALL WE HAVE ANY LIABILITY TO YOU FOR ANY LOSS OR DAMAGE OF ANY KIND INCURRED AS A RESULT OF THE USE OF THE SITE OR RELIANCE ON ANY INFORMATION PROVIDED. YOUR USE OF THE SITE AND YOUR RELIANCE ON ANY INFORMATION IS SOLELY AT YOUR OWN RISK. YOU ARE STRONGLY ADVISED TO VERIFY ALL INFORMATION DIRECTLY WITH AN AUTHORIZED DEALERSHIP OR THE OFFICIAL MANUFACTURER BEFORE MAKING ANY DECISIONS.</p>
-        <p>We are not affiliated with, endorsed by, or sponsored by any car brands mentioned. Content does not constitute official representations, professional advice, or endorsements. Images are used for illustrative and editorial purposes under fair use principles; we do not claim ownership and will remove any upon a valid request from a rights holder.</p>
-        <h2>Limitation of Liability</h2>
-        <p>TO THE MAXIMUM EXTENT PERMITTED BY LAW, WE, OUR AFFILIATES, OFFICERS, EMPLOYEES, AND AGENTS SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, PUNITIVE, OR EXEMPLARY DAMAGES (INCLUDING LOST PROFITS, DATA, OR GOODWILL) ARISING FROM SITE USE, EVEN IF ADVISED OF THE POSSIBILITY. OUR TOTAL LIABILITY SHALL NOT EXCEED $100 OR THE AMOUNT YOU PAID US IN THE PRIOR 12 MONTHS, WHICHEVER IS GREATER.</p>
-        <p>THIS LIMITATION APPLIES REGARDLESS OF LEGAL THEORY (CONTRACT, TORT, ETC.) AND EVEN IF A LIMITED REMEDY FAILS ITS ESSENTIAL PURPOSE. SOME JURISDICTIONS DO NOT ALLOW SUCH LIMITATIONS, SO THEY MAY NOT APPLY TO YOU.</p>
-        <h2>Indemnification</h2>
-        <p>You agree to indemnify, defend, and hold us harmless from any claims, losses, liabilities, damages, costs, and expenses (including attorneys&apos; fees) arising from your use of the Site, violation of these Terms, or infringement of third-party rights.</p>
-        <h2>Termination</h2>
-        <p>We may terminate or suspend your access to the Site at any time, without notice, for any reason, including violations of these Terms. Provisions that should survive termination (e.g., disclaimers, limitations, indemnification) will remain in effect.</p>
-        <h2>Governing Law</h2>
-        <p>These Terms are governed by the laws of the State of Delaware, USA, without regard to conflict of laws principles. You consent to the exclusive jurisdiction of courts in Delaware for any disputes.</p>
-        <h2>Dispute Resolution</h2>
-        <p>Any disputes arising from these Terms or Site use shall be resolved through binding arbitration in Delaware under the American Arbitration Association rules, rather than court, except for small claims or injunctive relief related to IP. No class actions; disputes are individual only.</p>
-        <h2>Miscellaneous</h2>
-        <p>These Terms constitute the entire agreement between you and us. If any provision is unenforceable, the remainder remains valid. Our failure to enforce a right does not waive it. You may not assign these Terms; we may assign them freely.</p>
-        <h2>Changes to Terms</h2>
-        <p>We may update these Terms at any time. Changes will be posted with the updated effective date. Significant changes may be notified prominently.</p>
-        <h2>Contact Information</h2>
-        <p>For questions about these Terms, contact:<br />XtremeGenAI Team<br />carsinusateam@gmail.com</p>
+    <section className="px-4 py-24 lg:py-28">
+      <div className="mx-auto max-w-5xl rounded-2xl border border-white/5 bg-slate-900/70 p-6 shadow-xl backdrop-blur-md sm:p-10 lg:p-12">
+        <header className="text-center">
+          <p className="text-sm font-semibold uppercase tracking-widest text-slate-200">
+            Xtreme Gen AI Private Limited
+          </p>
+          <h1 className="mt-3 text-3xl font-bold leading-tight text-transparent sm:text-4xl bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-400 bg-clip-text">
+            Terms and Conditions
+          </h1>
+          <div className="mt-4 space-y-2 text-sm text-slate-200 sm:text-base">
+            
+            <p>
+              <span className="font-semibold text-slate-100">Last Updated:</span> 19th Sep 2024
+            </p>
+            <p>
+              <span className="font-semibold text-slate-100">Website:</span>{" "}
+              <a
+                href="https://xtremegenai.com"
+                className="text-purple-300 underline decoration-purple-300/50 underline-offset-4 transition hover:text-purple-200"
+              >
+                https://xtremegenai.com
+              </a>
+            </p>
+          </div>
+        </header>
+
+        <div className="mt-12 space-y-10 text-slate-100">
+          {sections.map((section) => (
+            <article key={section.title} className="rounded-xl border border-white/5 bg-white/5 p-6 shadow-sm">
+              <h2 className="text-xl font-semibold text-purple-200 sm:text-2xl">{section.title}</h2>
+
+              {section.body?.map((paragraph, index) => (
+                <p
+                  key={index}
+                  className="mt-4 text-sm leading-relaxed text-slate-200 sm:text-base"
+                  dangerouslySetInnerHTML={{ __html: paragraph }}
+                />
+              ))}
+
+              {section.list && (
+                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
+                  {section.list.map((item, index) => (
+                    <li
+                      key={index}
+                      className="relative pl-5"
+                      dangerouslySetInnerHTML={{
+                        __html: `<span class="absolute left-0 top-1 text-purple-300">•</span>${item}`,
+                      }}
+                    />
+                  ))}
+                </ul>
+              )}
+
+              {section.subSections?.map((sub) => (
+                <div key={sub.subTitle} className="mt-6 rounded-lg border border-white/5 bg-slate-900/40 p-4">
+                  <h3 className="text-lg font-semibold text-purple-100">{sub.subTitle}</h3>
+                  {sub.body && (
+                    <div className="mt-3 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
+                      {sub.body.map((paragraph, index) => (
+                        <p
+                          key={index}
+                          dangerouslySetInnerHTML={{ __html: paragraph }}
+                        />
+                      ))}
+                    </div>
+                  )}
+                  {sub.list && (
+                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
+                      {sub.list.map((item, index) => (
+                        <li
+                          key={index}
+                          className="relative pl-5"
+                          dangerouslySetInnerHTML={{
+                            __html: `<span class="absolute left-0 top-1 text-purple-300">•</span>${item}`,
+                          }}
+                        />
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              ))}
+            </article>
+          ))}
+
+          <article className="rounded-xl border border-white/5 bg-white/5 p-6 shadow-sm">
+            <h2 className="text-xl font-semibold text-purple-200 sm:text-2xl">21. Contact Information</h2>
+            <div className="mt-4 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
+              <p>If you have any questions, concerns, or requests regarding these Terms, please contact us:</p>
+              <p className="font-semibold text-purple-100">Xtreme Gen AI Private Limited</p>
+              <p>
+                Email:{" "}
+                <a
+                  href="mailto:peush@xtremegenai.com"
+                  className="text-purple-300 underline decoration-purple-300/50 underline-offset-4 transition hover:text-purple-200"
+                >
+                  peush@xtremegenai.com
+                </a>
+              </p>
+              <p>
+                Website:{" "}
+                <a
+                  href="https://xtremegenai.com"
+                  className="text-purple-300 underline decoration-purple-300/50 underline-offset-4 transition hover:text-purple-200"
+                >
+                  https://xtremegenai.com
+                </a>
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

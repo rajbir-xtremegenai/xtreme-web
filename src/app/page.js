@@ -2,7 +2,6 @@ import Features from './components/Features';
 import HeadImg from './components/HeadImg';
 import Hero from './components/Hero'
 import Usecase from './components/Usecase';
-import Footer from './components/Footer';
 import Cta from './components/Cta';
 import WhyUs from './components/WhyUs';
 import Blogs from './components/Blogs';
@@ -18,9 +17,7 @@ export default function Home() {
       </div>
 
       <div className="w-full relative z-10 bg-[var(--color-bg-dark)]">
-        <div className="brands py-8">
-          <BrandScroller/>
-        </div>
+        <BrandScroller />
 
         <div id="features" className="scroll-mt-24"></div>
         <Features />
@@ -29,15 +26,15 @@ export default function Home() {
         <Usecase />
 
         <div id="whyus" className="scroll-mt-24"></div>
-        <WhyUs/>
+        <WhyUs />
 
         <div id="contact" className="scroll-mt-24"></div>
-        <Cta/>
+        <Cta />
 
         <div id="blogs" className="scroll-mt-24"></div>
-        <Blogs/>
+        <Blogs />
 
-        <Footer/>
+        
       </div>
     </main>
   );

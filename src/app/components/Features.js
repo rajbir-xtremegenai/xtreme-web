@@ -17,7 +17,7 @@ const Features = () => {
     // You can return a simple placeholder to reserve space if needed, 
     // or just null if you don't mind the layout shift.
     // For now, let's return null to see if it fixes the issue.
-    return null; 
+    return null;
   }
 
   const features = [
@@ -51,9 +51,9 @@ const Features = () => {
 
         {/* Header Pill */}
         <div className="flex justify-center mb-16">
-          <div className="bg-[#1e1035] text-[#9747FF] px-6 py-2 rounded-full text-sm tracking-widest font-medium border border-[#3c2a5a] uppercase">
+          <h2 className="text-center py-1.5 px-5 bg-[rgba(174,0,255,0.17)] text-[rgb(110,99,255)] text-sm font-normal uppercase rounded-full mx-auto mb-1.5 mt-5 block w-max">
             Features
-          </div>
+          </h2>
         </div>
 
         {/* Grid */}

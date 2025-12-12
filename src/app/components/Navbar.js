@@ -27,7 +27,7 @@ function Navbar() {
           <Link href="/#features" className="no-underline text-white font-[200] text-[14px] px-[8px] py-[5px] bg-[rgba(128,128,128,0.23)] rounded-[5px] hover:font-[400] transition-all duration-200">Features</Link>
           <Link href="/#usecase" className="no-underline text-white font-[200] text-[14px] px-[8px] py-[5px] bg-[rgba(128,128,128,0.23)] rounded-[5px] hover:font-[400] transition-all duration-200">Use Cases</Link>
           <Link href="/#whyus" className="no-underline text-white font-[200] text-[14px] px-[8px] py-[5px] bg-[rgba(128,128,128,0.23)] rounded-[5px] hover:font-[400] transition-all duration-200">Why Us</Link>
-          <Link href="/#blogs" className="no-underline text-white font-[200] text-[14px] px-[8px] py-[5px] bg-[rgba(128,128,128,0.23)] rounded-[5px] hover:font-[400] transition-all duration-200">Blogs</Link>
+          <Link href="/blogs" className="no-underline text-white font-[200] text-[14px] px-[8px] py-[5px] bg-[rgba(128,128,128,0.23)] rounded-[5px] hover:font-[400] transition-all duration-200">Blogs</Link>
         </div>
 
         {/* CTA Button */}
@@ -59,7 +59,7 @@ function Navbar() {
         <Link href="/#features" onClick={closeNav} className="no-underline text-white text-[20px] text-left my-[10px]">Features</Link>
         <Link href="/#usecase" onClick={closeNav} className="no-underline text-white text-[20px] text-left my-[10px]">Use Cases</Link>
         <Link href="/#whyus" onClick={closeNav} className="no-underline text-white text-[20px] text-left my-[10px]">Why Us</Link>
-        <Link href="/#blogs" onClick={closeNav} className="no-underline text-white text-[20px] text-left my-[10px]">Blogs</Link>
+        <Link href="/blogs" onClick={closeNav} className="no-underline text-white text-[20px] text-left my-[10px]">Blogs</Link>
       </div>
     </>
   )

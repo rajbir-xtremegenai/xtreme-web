@@ -4,9 +4,12 @@ import Link from 'next/link'
 function Cta() {
   return (
     <section className="flex flex-col items-center px-4 sm:px-6 lg:px-8 py-16">
-      <span className="mb-4 rounded-full bg-[#ae00ff2b] px-5 py-1 text-xs font-medium uppercase tracking-[0.16em] text-[#6e63ff] backdrop-blur-md">
-        Get Started
-      </span>
+      {/* Header Pill */}
+      <div className="flex justify-center mb-8">
+        <h2 className="text-center py-1.5 px-5 bg-[rgba(174,0,255,0.17)] text-[rgb(110,99,255)] text-sm font-normal uppercase rounded-full mx-auto mb-1.5 mt-5 block w-max">
+          Get Started
+        </h2>
+      </div>
 
       <div className="w-full max-w-6xl rounded-[28px] border border-white/5 bg-[#2b2b33]/70 px-6 py-12 text-center shadow-[0_20px_60px_rgba(0,0,0,0.35)] backdrop-blur-sm sm:px-12 lg:px-16">
         <h1 className="text-3xl font-semibold leading-tight text-white sm:text-4xl lg:text-[42px]">

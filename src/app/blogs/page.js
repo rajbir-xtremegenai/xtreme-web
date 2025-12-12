@@ -96,9 +96,9 @@ export default async function BlogsPage({ searchParams: searchParamsPromise }) {
           <BlogSortSelect page={page} sortBy={sortBy} />
         </div>
 
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Daily Latest Blogs</h1>
+        <h1 className="text-2xl font-bold text-gray-500 mt-16 mb-4">Latest Blogs</h1>
 
-        <div className="text-gray-700 mb-6">
+        <div className="text-gray-400 mb-6">
           Showing {blogs.length > 0 ? startIndex + 1 : 0}-{Math.min(endIndex, totalResults)} of <span className="font-semibold">{totalResults}</span> results
         </div>
 

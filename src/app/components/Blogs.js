@@ -30,8 +30,9 @@ const posts = [
 function Blogs() {
   return (
     <section className="mx-auto mt-4 w-11/12 max-w-6xl rounded-2xl px-5 py-10 text-white lg:w-full">
-      <div className="mx-auto flex w-full max-w-xl items-center justify-center">
-        <h2 className="inline-flex items-center justify-center rounded-full border border-fuchsia-500/20 bg-fuchsia-500/10 px-5 py-2 text-xs font-medium uppercase tracking-[0.2em] text-fuchsia-200 backdrop-blur-md">
+      {/* Header Pill */}
+      <div className="flex justify-center mb-8">
+        <h2 className="text-center py-1.5 px-5 bg-[rgba(174,0,255,0.17)] text-[rgb(110,99,255)] text-sm font-normal uppercase rounded-full mx-auto mb-1.5 mt-5 block w-max">
           Blogs
         </h2>
       </div>

@@ -182,16 +182,16 @@ export default async function BlogPage({ params }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
       <article
-        className="main-container mx-auto py-10 px-8 sm:px-12 lg:px-16 text-gray-800"
+        className="main-container mx-auto mt-35 pb-10 px-8 sm:px-12 lg:px-16 text-gray-100"
       >
         {/* Breadcrumb */}
         <nav aria-label="Breadcrumb" className="mb-4">
           <div className="flex flex-col md:flex-row justify-between md:items-center">
             <div>
-              <span className="text-gray-500">
-                <Link href="/" className="hover:underline text-blue-500">Home</Link> /{' '}
-                <Link href="/blogs" className="hover:underline text-blue-500">Blogs</Link> /{' '}
-                <span className="text-gray-700">{blog.seoTitle}</span>
+              <span className="text-gray-400">
+                <Link href="/" className="hover:underline text-blue-400 hover:text-blue-300">Home</Link> /{' '}
+                <Link href="/blogs" className="hover:underline text-blue-400 hover:text-blue-300">Blogs</Link> /{' '}
+                <span className="text-gray-300">{blog.seoTitle}</span>
               </span>
             </div>
           </div>
@@ -200,8 +200,8 @@ export default async function BlogPage({ params }) {
         {/* ✅ Highlights Section */}
         {highlights.length > 0 && (
           <section className="mt-8 mb-6">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Highlights</h2>
-            <ul className="list-disc list-inside space-y-2 text-gray-800">
+            <h2 className="text-2xl font-bold text-white mb-4">Highlights</h2>
+            <ul className="list-disc list-inside space-y-2 text-gray-200">
               {highlights.map((highlight, index) => (
                 <li key={index} className="text-lg">{highlight}</li>
               ))}
@@ -220,7 +220,7 @@ export default async function BlogPage({ params }) {
             priority={true}
             fetchPriority="high"
           />
-          <figcaption className=" text-sm text-gray-500 mt-2">
+          <figcaption className=" text-sm text-gray-400 mt-2">
             {blog.seoDescription}
           </figcaption>
         </figure>
@@ -235,7 +235,7 @@ export default async function BlogPage({ params }) {
                 hasTitle = true;
                 return (
                   <div key={element.id}>
-                    <h1 className="text-3xl font-bold text-gray-800 mb-2">{element.elementValue}</h1>
+                    <h1 className="text-3xl font-bold text-white mb-2">{element.elementValue}</h1>
                     <ArticleMeta
                       author={blog.author}
                       createdAt={blog.createdAt}
@@ -245,13 +245,13 @@ export default async function BlogPage({ params }) {
                 );
               case 'sub-title':
                 return (
-                  <h2 key={element.id} className="text-2xl font-semibold mb-3 text-gray-800">
+                  <h2 key={element.id} className="text-2xl font-semibold mb-3 text-white">
                     {element.elementValue}
                   </h2>
                 );
               case 'paragraph':
                 return (
-                  <p key={element.id} className="mb-4 text-gray-800 whitespace-pre-line">
+                  <p key={element.id} className="mb-4 text-gray-200 whitespace-pre-line">
                     {element.elementValue}
                   </p>
                 );
@@ -262,7 +262,7 @@ export default async function BlogPage({ params }) {
                       href={element.elementValue}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-600 hover:underline"
+                      className="text-blue-400 hover:text-blue-300 hover:underline"
                     >
                       {element.altText}
                     </a>
@@ -285,9 +285,9 @@ export default async function BlogPage({ params }) {
               case 'bullets':
                 return (
                   <div key={element.id}>
-                    <h3 className="text-xl font-semibold mb-2 text-gray-800">{element.bulletTitle}</h3>
-                    <p className="text-gray-600">{element.bulletDescription}</p>
-                    <ul className="list-disc list-inside mb-4 pl-4 text-gray-800">
+                    <h3 className="text-xl font-semibold mb-2 text-white">{element.bulletTitle}</h3>
+                    <p className="text-gray-300">{element.bulletDescription}</p>
+                    <ul className="list-disc list-inside mb-4 pl-4 text-gray-200">
                       {element.elementValue.split(',, ').map((item, index) => (
                         <li key={index} className="mb-1">{item.trim()}</li>
                       ))}
@@ -296,7 +296,7 @@ export default async function BlogPage({ params }) {
                 );
               case 'quote':
                 return (
-                  <blockquote key={element.id} className="border-l-4 border-gray-400 pl-4 italic text-gray-600 my-6">
+                  <blockquote key={element.id} className="border-l-4 border-gray-500 pl-4 italic text-gray-300 my-6">
                     <p>{element.elementValue}</p>
                   </blockquote>
                 );
@@ -309,12 +309,12 @@ export default async function BlogPage({ params }) {
         {/* ✅ FAQ Section (optional for Discover) */}
         {faq && faq.length > 0 && (
           <section className="mt-12">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Frequently Asked Questions</h2>
+            <h2 className="text-2xl font-bold text-white mb-6">Frequently Asked Questions</h2>
             <div className="space-y-6">
               {faq.map((item) => (
                 <div key={item.id}>
-                  <h3 className="text-lg font-semibold text-gray-800">{item.ques}</h3>
-                  <p className="text-gray-600 mt-2">{item.ans}</p>
+                  <h3 className="text-lg font-semibold text-white">{item.ques}</h3>
+                  <p className="text-gray-300 mt-2">{item.ans}</p>
                 </div>
               ))}
             </div>
