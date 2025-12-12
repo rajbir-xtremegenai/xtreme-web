@@ -85,71 +85,73 @@ export default async function BlogsPage({ searchParams: searchParamsPromise }) {
   const endIndex = startIndex + blogs.length;
 
   return (
-    <main className="min-h-screen bg-[var(--color-bg-dark)] text-white py-8 selection:bg-[var(--color-clr1)] selection:text-white">
-      <div className="max-w-5xl mx-auto px-4">
-        <div className="flex flex-row justify-between items-center mb-4">
-          <nav aria-label="Breadcrumb">
-            <span className="text-white/70">
-              <Link href="/" className="hover:underline text-[var(--color-clr1)] transition-colors duration-300">Home</Link> / Blogs
-            </span>
-          </nav>
-          <BlogSortSelect page={page} sortBy={sortBy} />
-        </div>
+    <main className="min-h-screen bg-[var(--color-bg-dark)] text-white selection:bg-[var(--color-clr1)] selection:text-white">
+      <div className="max-w-5xl mx-auto pt-28">
+        <article className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl shadow-2xl shadow-black/30 p-6 sm:p-10">
+          <div className="flex flex-row justify-between items-center mb-4">
+            <nav aria-label="Breadcrumb">
+              <span className="text-white/70">
+                <Link href="/" className="hover:underline text-[var(--color-clr1)] transition-colors duration-300">Home</Link> / Blogs
+              </span>
+            </nav>
+            <BlogSortSelect page={page} sortBy={sortBy} />
+          </div>
 
-        <h1 className="text-2xl md:text-3xl font-bold text-white mt-16 mb-4">Latest Blogs</h1>
+          <h1 className="text-2xl md:text-3xl font-bold text-white mt-16 mb-4">Latest Blogs</h1>
 
-        <div className="text-white/60 mb-6">
-          Showing {blogs.length > 0 ? startIndex + 1 : 0}-{Math.min(endIndex, totalResults)} of <span className="font-semibold text-white">{totalResults}</span> results
-        </div>
+          <div className="text-white/60 mb-6">
+            Showing {blogs.length > 0 ? startIndex + 1 : 0}-{Math.min(endIndex, totalResults)} of <span className="font-semibold text-white">{totalResults}</span> results
+          </div>
 
-        <div className="flex flex-col gap-10 max-w-5xl mx-auto">
-          {blogs.map((blog, index) => (
-            <NewBlogCard key={blog.id} blog={blog} priority={index === 0} />
-          ))}
-        </div>
+          <div className="flex flex-col gap-10 max-w-5xl mx-auto">
+            {blogs.map((blog, index) => (
+              <NewBlogCard key={blog.id} blog={blog} priority={index === 0} />
+            ))}
+          </div>
 
-        {totalPages > 1 && (
-          <div className="flex justify-center mt-8">
-            <nav>
-              <ul className="flex space-x-2">
-                <li>
-                  <Link href={`/blogs?page=${currentPage - 1}&sortBy=${sortBy}`}>
-                    <button
-                      disabled={currentPage === 1}
-                      className={`px-3 py-2 border border-white/20 rounded-md text-white bg-black/20 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--color-clr1)] transition-all duration-300 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    >
-                      &larr;
-                    </button>
-                  </Link>
-                </li>
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNumber => (
-                  <li key={pageNumber}>
-                    <Link href={`/blogs?page=${pageNumber}&sortBy=${sortBy}`}>
+          {totalPages > 1 && (
+            <div className="flex justify-center mt-8">
+              <nav>
+                <ul className="flex space-x-2">
+                  <li>
+                    <Link href={`/blogs?page=${currentPage - 1}&sortBy=${sortBy}`}>
                       <button
-                        className={`px-3 py-2 border border-white/20 rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-clr1)] ${currentPage === pageNumber
-                          ? 'bg-[var(--color-clr1)] text-white border-[var(--color-clr1)]'
-                          : 'text-white bg-black/20 hover:bg-white/10'
-                          }`}
+                        disabled={currentPage === 1}
+                        className={`px-3 py-2 border border-white/20 rounded-md text-white bg-black/20 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--color-clr1)] transition-all duration-300 ${currentPage === 1 ? 'opacity-50 cursor-not-allowed' : ''}`}
                       >
-                        {pageNumber}
+                        &larr;
                       </button>
                     </Link>
                   </li>
-                ))}
-                <li>
-                  <Link href={`/blogs?page=${currentPage + 1}&sortBy=${sortBy}`}>
-                    <button
-                      disabled={currentPage === totalPages}
-                      className={`px-3 py-2 border border-white/20 rounded-md text-white bg-black/20 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--color-clr1)] transition-all duration-300 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
-                    >
-                      &rarr;
-                    </button>
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        )}
+                  {Array.from({ length: totalPages }, (_, i) => i + 1).map(pageNumber => (
+                    <li key={pageNumber}>
+                      <Link href={`/blogs?page=${pageNumber}&sortBy=${sortBy}`}>
+                        <button
+                          className={`px-3 py-2 border border-white/20 rounded-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-[var(--color-clr1)] ${currentPage === pageNumber
+                            ? 'bg-[var(--color-clr1)] text-white border-[var(--color-clr1)]'
+                            : 'text-white bg-black/20 hover:bg-white/10'
+                            }`}
+                        >
+                          {pageNumber}
+                        </button>
+                      </Link>
+                    </li>
+                  ))}
+                  <li>
+                    <Link href={`/blogs?page=${currentPage + 1}&sortBy=${sortBy}`}>
+                      <button
+                        disabled={currentPage === totalPages}
+                        className={`px-3 py-2 border border-white/20 rounded-md text-white bg-black/20 hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--color-clr1)] transition-all duration-300 ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed' : ''}`}
+                      >
+                        &rarr;
+                      </button>
+                    </Link>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          )}
+        </article>
       </div>
     </main>
   );

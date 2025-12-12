@@ -72,7 +72,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 md:p-6 lg:p-8"> {/* Added responsive padding */}
-      <header className="mb-8 flex justify-between items-center">
+      <header className="mb-8 mt-20 flex justify-between items-center">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-800"> {/* Responsive text size */}
           Welcome to the Dashboard!
         </h1>

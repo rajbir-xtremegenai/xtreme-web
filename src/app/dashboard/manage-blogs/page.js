@@ -291,7 +291,7 @@ export default function ManageBlogsPage() {
 
   return (
     <div className="min-h-screen bg-gray-100 p-4 md:p-6 lg:p-8">
-      <header className="mb-8 flex justify-between items-center">
+      <header className="mt-20 mb-8 flex justify-between items-center">
         <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">Manage Blogs</h1>
         <Link href="/dashboard">
           <div className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded">Back to Dashboard</div>

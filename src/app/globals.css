@@ -5,11 +5,11 @@
   --font-outfit: var(--font-outfit), sans-serif;
   --color-clr1: #ad4aea;
   --color-clr2: #3300ff;
-  --color-bg-dark: #07071b;
+  --color-bg-dark: #0b0b2a;
 }
 
 :root {
-  --background: #07071b;
+  --background: #0b0b2a;
   --foreground: #ffffff;
 }
 

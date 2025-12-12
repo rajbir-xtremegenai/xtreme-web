@@ -255,7 +255,7 @@ const ManageBannersPage = () => {
 
   return (
     <div className="min-h-screen bg-white ">
-      <div className="container mx-auto p-4 bg-grey text-gray-800">
+      <div className="container mx-auto p-4 pt-28 bg-white text-gray-800">
         <button onClick={() => router.back()} className="mb-4 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded-md text-sm transition-colors duration-150">
           Back to Home
         </button>

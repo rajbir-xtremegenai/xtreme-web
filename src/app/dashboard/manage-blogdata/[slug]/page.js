@@ -325,6 +325,7 @@ export default function ManageBlogBodyPage() {
 
     return (
         <div className="min-h-screen bg-gray-100 p-4 md:p-6 lg:p-8">
+            <div className='mt-20'>
             <header className="mb-8 flex justify-between items-center">
                 <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
                     Manage {isCar ? "Car" : "Blog"} Body for <span className="text-indigo-600">{slug}</span>
@@ -613,6 +614,7 @@ export default function ManageBlogBodyPage() {
                     !isLoading && !error && <p className="text-center text-gray-600 py-4 bg-white rounded-md shadow">No {isCar ? "car" : "blog"} elements found. Click "Add New Element" to create one.</p>
                 )}
             </main>
+        </div>
         </div>
     );
 }
