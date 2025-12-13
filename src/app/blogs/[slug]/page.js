@@ -295,7 +295,7 @@ export default async function BlogPage({ params }) {
                       <h3 className="text-xl font-semibold mb-2 text-white">{element.bulletTitle}</h3>
                       <p className="text-gray-300 mb-2">{element.bulletDescription}</p>
                       <ul className="list-disc list-inside mb-4 pl-4 text-gray-200">
-                        {element.elementValue.split(',, ').map((item, index) => (
+                        {element.elementValue.split('.,').map((item, index) => (
                           <li key={index} className="mb-1">{item.trim()}</li>
                         ))}
                       </ul>

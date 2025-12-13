@@ -25,18 +25,18 @@ const NewBlogCard = ({ blog, priority = false }) => {
     >
       <div className="flex flex-col md:flex-row"> {/* Switch to column on mobile, row on md+ */}
         {/* Image Section */}
-        <div className="relative w-full md:w-3/12 h-auto aspect-square m-2">
+        <div className="relative w-full md:w-[400px] h-[150px] md:h-[210px] flex-shrink-0">
           <Image
             src={`${process.env.NEXT_PUBLIC_Image_BASE_URL}/${imageUrl}`}
             alt={altText || title}
             fill={true}
-            sizes="(max-width: 768px) 100vw, 25vw"
-            className="rounded-lg border border-white/20 object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
+            sizes="(max-width: 768px) 100vw, 400px"
+            className="object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
             priority={priority}
           />
         </div>
         {/* Text Content Section */}
-        <div className="w-full md:w-2/3 p-6 md:p-8 flex flex-col justify-between"> {/* Full width on mobile, 2/3 on md+, more padding on desktop */}
+        <div className="w-full flex-1 p-4 md:p-6 flex flex-col justify-between"> {/* Full width, takes remaining space, reduced padding */}
           <div>
             <h1 className="text-2xl md:text-3xl text-white mb-3 group-hover:text-[var(--color-clr1)] transition-colors duration-300"> {/* Larger title on desktop */}
               {title}

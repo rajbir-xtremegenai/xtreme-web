@@ -62,7 +62,7 @@ async function getBlogs(page = 1, sortBy = 'new') {
       itemsPerPage: listingsPerPage,
       sortBy: sortBy
     }),
-    next: { revalidate: 600 }
+    // next: { revalidate: 600 }
   });
 
   if (!res.ok) {

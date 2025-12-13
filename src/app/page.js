@@ -7,7 +7,40 @@ import WhyUs from './components/WhyUs';
 import Blogs from './components/Blogs';
 import BrandScroller from './components/BrandScroller';
 
-export default function Home() {
+
+async function getHomeData() {
+  if (!process.env.NEXT_PUBLIC_API_BASE_URL || !process.env.NEXT_PUBLIC_API_KEY) {
+    throw new Error('Missing API environment variables: NEXT_PUBLIC_API_BASE_URL or NEXT_PUBLIC_API_KEY');
+  }
+
+  console.log('Fetching home data');
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/home`, {
+      method: 'GET',
+      headers: {
+        'Authorization': process.env.NEXT_PUBLIC_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      // next: { revalidate: 600 }, // ISR approach
+    });
+
+    if (!res.ok) {
+      const errorBody = await res.text();
+      console.error(`Error response body: ${errorBody}`);
+      throw new Error(`Failed to fetch home data: ${res.status} ${res.statusText}`);
+    }
+
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching home data:', error.message);
+    return { success: false, message: error.message, data: { blogs: [] } };
+  }
+}
+
+export default async function Home() {
+  const homeData = await getHomeData();
+  const blogs = homeData?.success && homeData?.data?.blogs ? homeData.data.blogs : [];
+
   return (
     <main className="relative bg-[var(--color-bg-dark)] text-white overflow-hidden selection:bg-[var(--color-clr1)] selection:text-white">
 
@@ -32,9 +65,7 @@ export default function Home() {
         <Cta />
 
         <div id="blogs" className="scroll-mt-24"></div>
-        <Blogs />
-
-        
+        <Blogs blogs={blogs} />
       </div>
     </main>
   );

@@ -1,33 +1,27 @@
 import React from 'react'
+import Link from 'next/link'
 
-const posts = [
-  {
-    href: 'https://www.linkedin.com/pulse/structured-output-ai-why-gpt-4-leads-way-xtreme-gen-ai-piuec/?trackingId=8K37pQcikWT4zNaCWtso3g%3D%3D',
-    image: '/blog1.png',
-    emoji: '✨',
-    title: 'Structured Output In AI',
-    description:
-      'Comparison of ChatGPT, Gemini, LLaMA, and Claude for structured data outputs.',
-  },
-  {
-    href: 'https://www.linkedin.com/pulse/power-voice-ai-transforming-business-operations-user-experience-cd5ic/?trackingId=1gNFBNKJAjFwRaHBFjes1w%3D%3D',
-    image: '/blog2.png',
-    emoji: '🎙️',
-    title: 'Power of Voice AI',
-    description:
-      'Voice AI transforms businesses via multilingual communication & customer engagement.',
-  },
-  {
-    href: 'https://www.linkedin.com/pulse/economic-reality-voice-ai-xtreme-gen-ai-1hzmc/?trackingId=bcO%2BL%2BRFWp06J1RQ1AaPyw%3D%3D',
-    image: '/blog3.png',
-    emoji: '💸',
-    title: 'Economic Reality of Voice AI',
-    description:
-      'Voice AI revolutionizes customer interactions; strategic cost management ensures scalability and efficiency.',
-  },
-]
+function Blogs({ blogs = [] }) {
+  if (!blogs || blogs.length === 0) {
+    return null;
+  }
 
-function Blogs() {
+  const imageBaseUrl = process.env.NEXT_PUBLIC_Image_BASE_URL || '';
+
+  // Format date as "Oct 26, 2024"
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return `${months[date.getMonth()]} ${date.getDate()}, ${date.getFullYear()}`;
+  };
+
+  // Calculate reading time (default 5 min, or estimate based on title length)
+  const getReadingTime = (title) => {
+    // Simple estimation: assume ~200 words per minute, estimate words from title
+    // For now, default to 5 min as shown in reference
+    return '3 min read';
+  };
+
   return (
     <section className="mx-auto mt-4 w-11/12 max-w-6xl rounded-2xl px-5 py-10 text-white lg:w-full">
       {/* Header Pill */}
@@ -38,39 +32,60 @@ function Blogs() {
       </div>
 
       <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {posts.map((post) => (
-          <a
-            key={post.title}
-            href={post.href}
-            target="_blank"
-            rel="noreferrer"
-            className="group relative flex min-h-[320px] flex-col justify-end overflow-hidden rounded-2xl border border-white/20 bg-black/20 p-6 shadow-[inset_0_-60px_60px_-10px_rgba(0,0,0,0.35)] transition duration-300 hover:scale-[1.02]"
+        {blogs.map((blog) => (
+          <div
+            key={blog.id}
+            className="group relative rounded-2xl p-[2px] transition-all duration-300 hover:scale-[1.02]"
+            style={{
+              background: 'linear-gradient(135deg, rgba(51, 0, 255, 0.8), rgba(173, 74, 234, 0.8))',
+              boxShadow: '0 0 25px rgba(51, 0, 255, 0.5), 0 0 50px rgba(173, 74, 234, 0.3)'
+            }}
           >
-            <img
-              src={post.image}
-              alt={post.title}
-              className="absolute inset-0 h-full w-full object-cover object-top opacity-80 transition duration-300 group-hover:opacity-100"
-            />
-            <span className="absolute left-4 top-4 rounded-full border border-white/25 bg-white/10 px-3 py-2 text-2xl shadow-[0_0_30px_10px_rgba(255,255,255,0.15)] backdrop-blur-md md:block">
-              {post.emoji}
-            </span>
+            <Link
+              href={`/blogs/${blog.slug}`}
+              className="flex flex-col h-full bg-[#0a0520] rounded-2xl overflow-hidden"
+            >
+              {/* Top Section - Image with overlay effects */}
+              <div className="relative w-full h-48 overflow-hidden">
+                <img
+                  src={`${imageBaseUrl}/${blog.imageUrl}`}
+                  alt={blog.altText || blog.title}
+                  className="w-full h-full object-contain object-center transition-transform duration-300 group-hover:scale-110"
+                />
+                {/* Futuristic overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-blue-900/30 to-purple-900/50" />
+              </div>
 
-            <div className="relative rounded-xl border border-black/30 bg-white/5 p-4 backdrop-blur-lg shadow-[0_0_30px_10px_rgba(0,0,0,0.25)]">
-              <h4 className="flex items-center gap-3 text-lg font-semibold">
-                {post.title}
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="20"
-                  viewBox="0 -960 960 960"
-                  width="20"
-                  className="text-white"
-                >
-                  <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z" />
-                </svg>
-              </h4>
-              <p className="mt-2 text-sm text-white/70">{post.description}</p>
-            </div>
-          </a>
+              {/* Bottom Section - Text Content */}
+              <div className="relative bg-[#0f0a2a] p-5 flex flex-col flex-1">
+                {/* Title - Left aligned, truncates after 2 lines with ... */}
+                <h4 className="text-2xl font-bold text-white text-left mb-2 line-clamp-2 leading-tight overflow-hidden">
+                  {blog.title}
+                </h4>
+
+                {/* Bottom Row - Metadata and Button aligned */}
+                <div className="flex items-center justify-between gap-4">
+                  {/* Metadata - Date and Reading Time */}
+                  <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-0 text-sm text-white/80 font-normal">
+                    <span>{formatDate(blog.updatedAt)}</span>
+                    <span className="hidden sm:inline m-1"> | </span>
+                    <span className="sm:ml-0">{getReadingTime(blog.title)}</span>
+                  </div>
+
+                  {/* Read More Button - Bottom Right */}
+                  <span
+                    className="px-6 py-2.5 text-white font-bold text-sm rounded-lg transition-all duration-300 group-hover:scale-105 group-hover:shadow-[0_0_20px_rgba(173,74,234,0.6)] inline-block cursor-pointer flex-shrink-0"
+                    style={{
+                      background: 'linear-gradient(90deg, #ad4aea 0%, #ff00ff 100%)',
+                      boxShadow: '0 4px 15px rgba(173, 74, 234, 0.4)'
+                    }}
+                  >
+                    Read More
+                  </span>
+                </div>
+              </div>
+            </Link>
+          </div>
         ))}
       </div>
     </section>
