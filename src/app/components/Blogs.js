@@ -6,6 +6,9 @@ function Blogs({ blogs = [] }) {
     return null;
   }
 
+  // Limit to only 3 blogs
+  const visibleBlogs = blogs.slice(0, 3);
+
   const imageBaseUrl = process.env.NEXT_PUBLIC_Image_BASE_URL || '';
 
   // Format date as "Oct 26, 2024"
@@ -32,7 +35,7 @@ function Blogs({ blogs = [] }) {
       </div>
 
       <div className="mt-8 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-        {blogs.map((blog) => (
+        {visibleBlogs.map((blog) => (
           <div
             key={blog.id}
             className="group relative rounded-2xl p-[2px] transition-all duration-300 hover:scale-[1.02]"
