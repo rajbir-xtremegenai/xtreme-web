@@ -15,13 +15,13 @@ const outfit = Outfit({
 
 export const metadata = {
   title: {
-    default: "Xtreme Gen AI",
+    default: "Call The Future Now: Human-Like AI Agents by Xtreme Gen AI",
     template: "%s | Xtreme Gen AI"
   },
-  description: "Discover the power of Xtreme Gen AI, the ultimate AI platform for businesses and individuals. From lead generation and sales assistance to content creation and feedback collection, Xtreme Gen AI delivers cutting-edge solutions tailored to your needs. Enhance productivity, automate workflows, and unlock new growth opportunities with our advanced AI-driven tools. Explore features like real-time analytics, seamless integration, and customizable solutions designed to scale with your business. Experience the future of AI—start your journey with Xtreme Gen AI today!",
-  keywords: ["AI", "customer support", "chatbot", "IVR ai", "text-to-speech", "Voice AI", "Xtreme Gen AI"],
-  authors: [{ name: "Anshuman Singh" }],
-  creator: "Anshuman Singh",
+  description: "Empowering 50+ brands to rapidly build & deploy 24/7, language-neutral, CRM-integrated voice AI agents. Low latency & interruption handling.",
+  keywords: ["AI", "customer support", "chatbot", "IVR ai", "text-to-speech", "Voice AI", "Xtreme Gen AI", "AI Agents", "Automation"],
+  authors: [{ name: "Xtreme Gen AI" }],
+  creator: "Xtreme Gen AI",
   publisher: "Xtreme Gen AI",
   robots: {
     index: true,
@@ -35,10 +35,10 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://xtreme-gen-ai.com",
+    url: "https://xtremegenai.com",
     siteName: "Xtreme Gen AI",
-    title: "Xtreme Gen AI - Call The Future Now",
-    description: "Discover the power of Xtreme Gen AI, the ultimate AI platform for businesses and individuals. From lead generation and sales assistance to content creation and feedback collection, Xtreme Gen AI delivers cutting-edge solutions tailored to your needs. Enhance productivity, automate workflows, and unlock new growth opportunities with our advanced AI-driven tools. Explore features like real-time analytics, seamless integration, and customizable solutions designed to scale with your business. Experience the future of AI—start your journey with Xtreme Gen AI today!",
+    title: "Call The Future Now: Human-Like AI Agents by Xtreme Gen AI",
+    description: "Empowering 50+ brands to rapidly build & deploy 24/7, language-neutral, CRM-integrated voice AI agents. Low latency & interruption handling.",
     images: [
       {
         url: "/logo.svg",

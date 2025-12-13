@@ -2,11 +2,10 @@ export async function generateMetadata() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
   return {
     title: "Terms and Conditions - Xtreme Gen AI",
-    description: "Read the terms and conditions for using Xtreme Gen AI's website, services, and AI-powered solutions.",
-    // metadataBase: new URL(baseUrl),
+    description: "Read the terms and conditions for using Xtreme Gen AI's website, services, and AI-powered solutions. Understand your rights and responsibilities.",
     openGraph: {
       title: "Terms and Conditions - Xtreme Gen AI",
-      description: "Our terms and conditions for using the Xtreme Gen AI website and services.",
+      description: "Read the terms and conditions for using Xtreme Gen AI's website, services, and AI-powered solutions. Understand your rights and responsibilities.",
       url: `${baseUrl}/terms`,
       siteName: "Xtreme Gen AI",
       type: "website",

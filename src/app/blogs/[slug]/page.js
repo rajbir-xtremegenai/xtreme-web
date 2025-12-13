@@ -9,63 +9,6 @@ import ArticleMeta from '../../components/ArticleMeta';
 
 const imageBaseUrl = process.env.NEXT_PUBLIC_Image_BASE_URL;
 
-// ✅ Generate SEO metadata
-// export async function generateMetadata({ params }) {
-//   const { slug } = await params;
-//   const blogPost = await getBlogData(slug);
-
-//   if (!blogPost.success) {
-//     return {
-//       title: 'Blog Post Not Found',
-//       description: 'The requested blog post could not be found.',
-//       robots: { index: false, follow: false },
-//     };
-//   }
-
-//   const { blog } = blogPost.data;
-//   const blogImageUrl = `${imageBaseUrl}/${blog.imageUrl}`;
-//   const seoTitle = blog.seoTitle;
-//   const seoDescription = blog.seoDescription || `Read the latest post about ${blog.seoTitle}.`;
-
-//   return {
-//     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
-//     title: seoTitle,
-//     description: seoDescription,
-//     keywords: blog.seoKeywords ? blog.seoKeywords.split(', ') : [],
-//     authors: [{ name: blog.author || 'Rajbir Saini' }],
-//     alternates: {
-//       canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${slug}`,
-//     },
-//     robots: {
-//       index: true,
-//       follow: true,
-//       maxImagePreview: 'large', // ✅ For Google Discover large images
-//     },
-//     openGraph: {
-//       title: seoTitle,
-//       description: seoDescription,
-//       url: `${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${slug}`,
-//       type: 'article',
-//       publishedTime: new Date(blog.createdAt).toISOString(),
-//       modifiedTime: new Date(blog.updatedAt).toISOString(),
-//       images: [
-//         {
-//           url: blogImageUrl,
-//           width: 1200,
-//           height: 675,
-//           alt: seoTitle,
-//         },
-//       ],
-//     },
-//     twitter: {
-//       card: 'summary_large_image',
-//       title: seoTitle,
-//       description: seoDescription,
-//       images: [blogImageUrl],
-//     },
-//   };
-// }
-
 // ✅ Fetch blog data
 async function getBlogData(slug) {
   if (!process.env.NEXT_PUBLIC_API_BASE_URL || !process.env.NEXT_PUBLIC_API_KEY) {
@@ -95,6 +38,64 @@ async function getBlogData(slug) {
     return { success: false, message: error.message };
   }
 }
+
+// ✅ Generate SEO metadata
+export async function generateMetadata({ params }) {
+  const { slug } = await params;
+  const blogPost = await getBlogData(slug);
+
+  if (!blogPost.success) {
+    return {
+      title: 'Blog Post Not Found',
+      description: 'The requested blog post could not be found.',
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const { blog } = blogPost.data;
+  const blogImageUrl = `${imageBaseUrl}/${blog.imageUrl}`;
+  const seoTitle = blog.seoTitle;
+  const seoDescription = blog.seoDescription || `Read the latest post about ${blog.seoTitle}.`;
+
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL),
+    title: seoTitle,
+    description: seoDescription,
+    keywords: blog.seoKeywords ? blog.seoKeywords.split(', ') : [],
+    authors: [{ name: blog.author || 'Xtreme Gen AI Team' }],
+    alternates: {
+      canonical: `${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      maxImagePreview: 'large', // ✅ For Google Discover large images
+    },
+    openGraph: {
+      title: seoTitle,
+      description: seoDescription,
+      url: `${process.env.NEXT_PUBLIC_SITE_URL}/blogs/${slug}`,
+      type: 'article',
+      publishedTime: new Date(blog.createdAt).toISOString(),
+      modifiedTime: new Date(blog.updatedAt).toISOString(),
+      images: [
+        {
+          url: blogImageUrl,
+          width: 1200,
+          height: 675,
+          alt: seoTitle,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: seoTitle,
+      description: seoDescription,
+      images: [blogImageUrl],
+    },
+  };
+}
+
 
 // ✅ Main Blog Page (Updated)
 export default async function BlogPage({ params }) {
@@ -126,20 +127,20 @@ export default async function BlogPage({ params }) {
     "image": blogImageUrl,
     "author": {
       "@type": "Person",
-      "name": blog.author || "Rajbir Saini",
-      "url": "https://carsinusa.com/author/rajbir-saini"
+      "name": blog.author || "Xtreme Gen AI Team",
+      "url": "https://xtremegenai.com"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "CarsInUSA",
+      "name": "Xtreme Gen AI",
       "logo": {
         "@type": "ImageObject",
-        "url": `${process.env.NEXT_PUBLIC_SITE_URL}/logo.png`
+        "url": `${process.env.NEXT_PUBLIC_SITE_URL}/logo.svg`
       }
     },
     "datePublished": new Date(blog.createdAt).toISOString(),
     "dateModified": new Date(blog.updatedAt).toISOString(),
-    "articleSection": "Cars & Reviews",
+    "articleSection": "Technology",
     "keywords": blog.seoKeywords,
     "isAccessibleForFree": true,
     "inLanguage": "en-US"

@@ -7,6 +7,17 @@ import WhyUs from './components/WhyUs';
 import Blogs from './components/Blogs';
 import BrandScroller from './components/BrandScroller';
 
+export const metadata = {
+  title: "Call The Future Now: Human-Like AI Agents by Xtreme Gen AI",
+  description: "Empowering 50+ brands to rapidly build & deploy 24/7, language-neutral, CRM-integrated voice AI agents. Low latency & interruption handling.",
+  openGraph: {
+    title: "Call The Future Now: Human-Like AI Agents by Xtreme Gen AI",
+    description: "Empowering 50+ brands to rapidly build & deploy 24/7, language-neutral, CRM-integrated voice AI agents. Low latency & interruption handling.",
+    url: "https://xtremegenai.com",
+    type: "website",
+  },
+};
+
 
 async function getHomeData() {
   return {

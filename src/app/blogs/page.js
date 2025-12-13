@@ -6,9 +6,9 @@ import BlogSortSelect from '../components/BlogSortSelect';
 
 export async function generateMetadata() {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  const title = "Car News, Reviews, and Guides - Xtreme Gen AI Blog";
-  const description = "Stay up-to-date with the latest car news, expert reviews, and helpful guides on the Xtreme Gen AI blog. Your source for all things automotive.";
-  const keywords = "car blog, automotive news, car reviews, car guides, car maintenance tips, Xtreme Gen AI blog";
+  const title = "Latest Updates & Insights - Xtreme Gen AI Blog";
+  const description = "Explore the latest insights, news, and guides on AI agents, voice AI, and automation from Xtreme Gen AI.";
+  const keywords = "AI blog, voice AI news, automation insights, Xtreme Gen AI updates, AI agents, artificial intelligence trends";
 
   return {
     title,
@@ -34,7 +34,6 @@ export async function generateMetadata() {
       title,
       description,
       images: [`${baseUrl}/og-image.jpg`],
-      creator: "@carsinusa",
     },
     alternates: {
       canonical: `${baseUrl}/blogs`,
@@ -42,7 +41,7 @@ export async function generateMetadata() {
     authors: [{ name: "Xtreme Gen AI Team", url: baseUrl }],
     creator: "Xtreme Gen AI Team",
     publisher: "Xtreme Gen AI",
-    category: "Automobile",
+    category: "Technology",
   };
 }
 
