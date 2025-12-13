@@ -30,7 +30,7 @@ function Blogs({ blogs = [] }) {
       {/* Header Pill */}
       <div className="flex justify-center mb-8">
         <h2 className="text-center py-1.5 px-5 bg-[rgba(174,0,255,0.17)] text-[rgb(110,99,255)] text-sm font-normal uppercase rounded-full mx-auto mb-1.5 mt-5 block w-max">
-          Blogs
+          Insights & Blogs
         </h2>
       </div>
 

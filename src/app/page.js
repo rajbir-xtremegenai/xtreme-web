@@ -85,9 +85,6 @@ export default async function Home() {
       <div className="w-full relative z-10 bg-[var(--color-bg-dark)]">
         <BrandScroller />
 
-        <div id="features" className="scroll-mt-24"></div>
-        <Features />
-
         <div id="usecase" className="scroll-mt-24"></div>
         <Usecase />
 
@@ -95,6 +92,9 @@ export default async function Home() {
 
         <div id="partners" className="scroll-mt-24"></div>
         <Partners />
+
+        <div id="features" className="scroll-mt-24"></div>
+        <Features />
 
         <div id="whyus" className="scroll-mt-24"></div>
         <WhyUs />
