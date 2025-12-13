@@ -2,6 +2,7 @@ import Features from './components/Features';
 import HeadImg from './components/HeadImg';
 import Hero from './components/Hero'
 import Usecase from './components/Usecase';
+import IndustrySolutions from './components/IndustrySolutions';
 import Cta from './components/Cta';
 import WhyUs from './components/WhyUs';
 import Blogs from './components/Blogs';
@@ -89,6 +90,8 @@ export default async function Home() {
 
         <div id="usecase" className="scroll-mt-24"></div>
         <Usecase />
+
+        <IndustrySolutions />
 
         <div id="partners" className="scroll-mt-24"></div>
         <Partners />
