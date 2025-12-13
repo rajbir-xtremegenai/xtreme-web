@@ -33,15 +33,15 @@ function Usecase() {
   ];
 
   return (
-    <div className="w-[80%] mx-auto mt-[50px] flex flex-col items-center p-5 rounded-[20px] bg-transparent max-[1200px]:w-full">
+    <div className="w-full max-w-7xl mx-auto px-4 md:px-8 mt-[50px] flex flex-col items-center bg-transparent">
       {/* Header Pill */}
       <div className="flex justify-center mb-4">
         <h2 className="text-center py-1.5 px-5 bg-[rgba(174,0,255,0.17)] text-[rgb(110,99,255)] text-sm font-normal uppercase rounded-full mx-auto mb-1.5 mt-5 block w-max">
           Use Case
         </h2>
       </div>
-      <p className="text-[26px] mb-[30px] max-[600px]:text-center max-[600px]:mt-[5px] max-[600px]:text-base">Real-World Impact.</p>
-      <div className="w-[80%] mx-auto flex flex-col gap-5 max-[900px]:w-full">
+      <p className="text-[26px] mb-[30px] max-[600px]:text-center max-[600px]:mt-[5px] max-[600px]:text-base text-white">Real-World Impact.</p>
+      <div className="w-[90%] md:w-[80%] mx-auto flex flex-col gap-5 max-[900px]:w-full">
         <div className="grid gap-5 relative grid-cols-3 max-[600px]:grid-cols-1">
           {useCasesTop.map((item, index) => (
             <div key={index} className="w-full h-[300px] max-[600px]:h-[200px] relative overflow-hidden px-5 rounded-[20px] bg-transparent flex flex-col justify-end shadow-[inset_0px_-90px_50px_rgba(0,0,0,0.849)] group">

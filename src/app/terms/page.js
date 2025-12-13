@@ -269,106 +269,23 @@ const sections = [
 
 export default function TermsPage() {
   return (
-    <section className="px-4 py-24 lg:py-28">
-      <div className="mx-auto max-w-5xl rounded-2xl border border-white/5 bg-slate-900/70 p-6 shadow-xl backdrop-blur-md sm:p-10 lg:p-12">
-        <header className="text-center">
-          <p className="text-sm font-semibold uppercase tracking-widest text-slate-200">
-            Xtreme Gen AI Private Limited
-          </p>
-          <h1 className="mt-3 text-3xl font-bold leading-tight text-transparent sm:text-4xl bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-400 bg-clip-text">
-            Terms and Conditions
-          </h1>
-          <div className="mt-4 space-y-2 text-sm text-slate-200 sm:text-base">
-            
-            <p>
-              <span className="font-semibold text-slate-100">Last Updated:</span> 19th Sep 2024
+    <main className="min-h-screen bg-[var(--color-bg-dark)]">
+      <section className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pb-24">
+        <div className="rounded-2xl border border-white/5 bg-slate-900/70 p-6 shadow-xl backdrop-blur-md sm:p-10 lg:p-12">
+          <header className="text-center">
+            <p className="text-sm font-semibold uppercase tracking-widest text-slate-200">
+              Xtreme Gen AI Private Limited
             </p>
-            <p>
-              <span className="font-semibold text-slate-100">Website:</span>{" "}
-              <a
-                href="https://xtremegenai.com"
-                className="text-purple-300 underline decoration-purple-300/50 underline-offset-4 transition hover:text-purple-200"
-              >
-                https://xtremegenai.com
-              </a>
-            </p>
-          </div>
-        </header>
+            <h1 className="mt-3 text-3xl font-bold leading-tight text-transparent sm:text-4xl bg-gradient-to-r from-purple-500 via-violet-500 to-indigo-400 bg-clip-text">
+              Terms and Conditions
+            </h1>
+            <div className="mt-4 space-y-2 text-sm text-slate-200 sm:text-base">
 
-        <div className="mt-12 space-y-10 text-slate-100">
-          {sections.map((section) => (
-            <article key={section.title} className="rounded-xl border border-white/5 bg-white/5 p-6 shadow-sm">
-              <h2 className="text-xl font-semibold text-purple-200 sm:text-2xl">{section.title}</h2>
-
-              {section.body?.map((paragraph, index) => (
-                <p
-                  key={index}
-                  className="mt-4 text-sm leading-relaxed text-slate-200 sm:text-base"
-                  dangerouslySetInnerHTML={{ __html: paragraph }}
-                />
-              ))}
-
-              {section.list && (
-                <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
-                  {section.list.map((item, index) => (
-                    <li
-                      key={index}
-                      className="relative pl-5"
-                      dangerouslySetInnerHTML={{
-                        __html: `<span class="absolute left-0 top-1 text-purple-300">•</span>${item}`,
-                      }}
-                    />
-                  ))}
-                </ul>
-              )}
-
-              {section.subSections?.map((sub) => (
-                <div key={sub.subTitle} className="mt-6 rounded-lg border border-white/5 bg-slate-900/40 p-4">
-                  <h3 className="text-lg font-semibold text-purple-100">{sub.subTitle}</h3>
-                  {sub.body && (
-                    <div className="mt-3 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
-                      {sub.body.map((paragraph, index) => (
-                        <p
-                          key={index}
-                          dangerouslySetInnerHTML={{ __html: paragraph }}
-                        />
-                      ))}
-                    </div>
-                  )}
-                  {sub.list && (
-                    <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
-                      {sub.list.map((item, index) => (
-                        <li
-                          key={index}
-                          className="relative pl-5"
-                          dangerouslySetInnerHTML={{
-                            __html: `<span class="absolute left-0 top-1 text-purple-300">•</span>${item}`,
-                          }}
-                        />
-                      ))}
-                    </ul>
-                  )}
-                </div>
-              ))}
-            </article>
-          ))}
-
-          <article className="rounded-xl border border-white/5 bg-white/5 p-6 shadow-sm">
-            <h2 className="text-xl font-semibold text-purple-200 sm:text-2xl">21. Contact Information</h2>
-            <div className="mt-4 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
-              <p>If you have any questions, concerns, or requests regarding these Terms, please contact us:</p>
-              <p className="font-semibold text-purple-100">Xtreme Gen AI Private Limited</p>
               <p>
-                Email:{" "}
-                <a
-                  href="mailto:peush@xtremegenai.com"
-                  className="text-purple-300 underline decoration-purple-300/50 underline-offset-4 transition hover:text-purple-200"
-                >
-                  peush@xtremegenai.com
-                </a>
+                <span className="font-semibold text-slate-100">Last Updated:</span> 19th Sep 2024
               </p>
               <p>
-                Website:{" "}
+                <span className="font-semibold text-slate-100">Website:</span>{" "}
                 <a
                   href="https://xtremegenai.com"
                   className="text-purple-300 underline decoration-purple-300/50 underline-offset-4 transition hover:text-purple-200"
@@ -377,9 +294,94 @@ export default function TermsPage() {
                 </a>
               </p>
             </div>
-          </article>
+          </header>
+
+          <div className="mt-12 space-y-10 text-slate-100">
+            {sections.map((section) => (
+              <article key={section.title} className="rounded-xl border border-white/5 bg-white/5 p-6 shadow-sm">
+                <h2 className="text-xl font-semibold text-purple-200 sm:text-2xl">{section.title}</h2>
+
+                {section.body?.map((paragraph, index) => (
+                  <p
+                    key={index}
+                    className="mt-4 text-sm leading-relaxed text-slate-200 sm:text-base"
+                    dangerouslySetInnerHTML={{ __html: paragraph }}
+                  />
+                ))}
+
+                {section.list && (
+                  <ul className="mt-4 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
+                    {section.list.map((item, index) => (
+                      <li
+                        key={index}
+                        className="relative pl-5"
+                        dangerouslySetInnerHTML={{
+                          __html: `<span class="absolute left-0 top-1 text-purple-300">•</span>${item}`,
+                        }}
+                      />
+                    ))}
+                  </ul>
+                )}
+
+                {section.subSections?.map((sub) => (
+                  <div key={sub.subTitle} className="mt-6 rounded-lg border border-white/5 bg-slate-900/40 p-4">
+                    <h3 className="text-lg font-semibold text-purple-100">{sub.subTitle}</h3>
+                    {sub.body && (
+                      <div className="mt-3 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
+                        {sub.body.map((paragraph, index) => (
+                          <p
+                            key={index}
+                            dangerouslySetInnerHTML={{ __html: paragraph }}
+                          />
+                        ))}
+                      </div>
+                    )}
+                    {sub.list && (
+                      <ul className="mt-3 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
+                        {sub.list.map((item, index) => (
+                          <li
+                            key={index}
+                            className="relative pl-5"
+                            dangerouslySetInnerHTML={{
+                              __html: `<span class="absolute left-0 top-1 text-purple-300">•</span>${item}`,
+                            }}
+                          />
+                        ))}
+                      </ul>
+                    )}
+                  </div>
+                ))}
+              </article>
+            ))}
+
+            <article className="rounded-xl border border-white/5 bg-white/5 p-6 shadow-sm">
+              <h2 className="text-xl font-semibold text-purple-200 sm:text-2xl">21. Contact Information</h2>
+              <div className="mt-4 space-y-2 text-sm leading-relaxed text-slate-200 sm:text-base">
+                <p>If you have any questions, concerns, or requests regarding these Terms, please contact us:</p>
+                <p className="font-semibold text-purple-100">Xtreme Gen AI Private Limited</p>
+                <p>
+                  Email:{" "}
+                  <a
+                    href="mailto:peush@xtremegenai.com"
+                    className="text-purple-300 underline decoration-purple-300/50 underline-offset-4 transition hover:text-purple-200"
+                  >
+                    peush@xtremegenai.com
+                  </a>
+                </p>
+                <p>
+                  Website:{" "}
+                  <a
+                    href="https://xtremegenai.com"
+                    className="text-purple-300 underline decoration-purple-300/50 underline-offset-4 transition hover:text-purple-200"
+                  >
+                    https://xtremegenai.com
+                  </a>
+                </p>
+              </div>
+            </article>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
   );
 }
