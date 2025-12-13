@@ -27,7 +27,7 @@ const ProfilePage = () => {
 
     const token = localStorage.getItem('authToken');
     if (!token) {
-      router.replace('/login');
+      router.replace('/dashboard/login');
     } else {
       setIsCheckingAuth(false);
     }
@@ -118,7 +118,7 @@ const ProfilePage = () => {
           <h1 className="text-3xl font-bold text-gray-800 mb-8 text-center">
             Profile Information
           </h1>
-          
+
           <div className="space-y-6">
             <div>
               <p className="text-sm font-semibold text-gray-600">Employee ID:</p>

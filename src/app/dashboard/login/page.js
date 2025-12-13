@@ -52,44 +52,44 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 flex flex-col justify-center items-center p-4"> {/* Added p-4 and changed bg to bg-gray-50 */}
-      <div className="bg-white p-8 rounded-lg shadow-md w-full max-w-sm"> {/* Added rounded-lg for consistency */}
-        <div className="flex justify-center mb-10"> {/* Increased logo margin-bottom */}
+    <div className="min-h-screen bg-[var(--color-bg-dark)] text-white flex flex-col justify-center items-center p-4 selection:bg-[var(--color-clr1)] selection:text-white">
+      <div className="bg-white/5 border border-white/10 backdrop-blur-md p-8 rounded-2xl shadow-lg w-full max-w-sm">
+        <div className="flex justify-center mb-10">
           <Image src="/logo.svg" alt="Car Dashboard Logo" width={100} height={100} />
         </div>
         <form onSubmit={handleLogin}>
           <div className="mb-4">
-            <label htmlFor="employeeId" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="employeeId" className="block text-sm font-medium text-gray-300 mb-1">
               Employee ID
             </label>
             <input
               type="text"
               id="employeeId"
-              className="border text-black p-2 rounded w-full focus:ring-blue-500 focus:border-blue-500" // Added focus styles
+              className="bg-white/5 border border-white/10 text-white placeholder-gray-400 p-2 rounded w-full focus:ring-2 focus:ring-[var(--color-clr1)] focus:border-[var(--color-clr1)] outline-none transition-colors"
               placeholder="Enter your Employee ID"
               value={employeeId}
               onChange={(e) => setEmployeeId(e.target.value)}
             />
           </div>
           <div className="mb-6">
-            <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-1">
+            <label htmlFor="password" className="block text-sm font-medium text-gray-300 mb-1">
               Password
             </label>
             <input
               type="password"
               id="password"
-              className="border text-black p-2 rounded w-full focus:ring-blue-500 focus:border-blue-500" // Added focus styles
+              className="bg-white/5 border border-white/10 text-white placeholder-gray-400 p-2 rounded w-full focus:ring-2 focus:ring-[var(--color-clr1)] focus:border-[var(--color-clr1)] outline-none transition-colors"
               placeholder="Enter your password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           {error && (
-            <p className="text-red-500 text-sm text-center mb-4">{error}</p>
+            <p className="text-red-400 text-sm text-center mb-4">{error}</p>
           )}
           <button
             type="submit"
-            className="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition-colors duration-150" // Adjusted hover, added transition
+            className="w-full bg-[var(--color-clr1)] hover:bg-[var(--color-clr2)] text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-[var(--color-clr1)] focus:ring-opacity-50 transition-colors duration-150"
           >
             Login
           </button>

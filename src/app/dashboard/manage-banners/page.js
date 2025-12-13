@@ -40,7 +40,7 @@ const ManageBannersPage = () => {
     const token = localStorage.getItem('authToken');
     const storedEmpId = localStorage.getItem('empId');
     if (!token || !storedEmpId) {
-      router.replace('/login');
+      router.replace('/dashboard/login');
     } else {
       setEmpId(storedEmpId);
       setIsCheckingAuth(false);

@@ -32,7 +32,7 @@ export default function ManageRelatedLinksPage() {
         const storedEmpId = localStorage.getItem('empId');
 
         if (!authToken || !storedEmpId) {
-            router.replace('/login');
+            router.replace('/dashboard/login');
         } else {
             setEmpId(storedEmpId);
             setIsCheckingAuth(false);
