@@ -1,9 +1,9 @@
 export const metadata = {
-  title: "Contact Us - Xtreme Gen AI",
-  description: "Get in touch with Xtreme Gen AI for product demos, partnerships, and support. We are here to help you build the future with human-like AI agents.",
+  title: "Let's Get in Touch - Xtreme Gen AI",
+  description: "We're here to help you build the future. Reach out for demos, partnerships, or any questions you have.",
   openGraph: {
-    title: "Contact Us - Xtreme Gen AI",
-    description: "Get in touch with Xtreme Gen AI for product demos, partnerships, and support. We are here to help you build the future with human-like AI agents.",
+    title: "Let's Get in Touch - Xtreme Gen AI",
+    description: "We're here to help you build the future. Reach out for demos, partnerships, or any questions you have.",
     url: "https://xtremegenai.com/contact",
     type: "website",
     siteName: "Xtreme Gen AI",

@@ -20,51 +20,52 @@ export const metadata = {
 
 
 async function getHomeData() {
-  return {
-    "success": true,
-    "message": "Home data fetched successfully.",
-    "data": {
-        "banners": [],
-        "blogs": [
-            {
-                "id": 4,
-                "slug": "slug1",
-                "title": "blog seo title",
-                "imageUrl": "blogs/i1-XtremeGenAI.png",
-                "altText": "image alt text here",
-                "author": "rajbir",
-                "updatedAt": "2025-12-13T05:44:01.469Z"
-            }
-        ],
-        "phoneNumber": "92280 34172"
+  //   return {
+  //     "success": true,
+  //     "message": "Home data fetched successfully.",
+  //     "data": {
+  //         "banners": [],
+  //         "blogs": [
+  //             {
+  //                 "id": 4,
+  //                 "slug": "slug1",
+  //                 "title": "blog seo title",
+  //                 "imageUrl": "blogs/i1-XtremeGenAI.png",
+  //                 "altText": "image alt text here",
+  //                 "author": "rajbir",
+  //                 "updatedAt": "2025-12-13T05:44:01.469Z"
+  //             }
+  //         ],
+  //         "phoneNumber": "92280 34172"
+  //     }
+  // }
+
+  if (!process.env.NEXT_PUBLIC_API_BASE_URL || !process.env.NEXT_PUBLIC_API_KEY) {
+    throw new Error('Missing API environment variables: NEXT_PUBLIC_API_BASE_URL or NEXT_PUBLIC_API_KEY');
+  }
+
+  console.log('Fetching home data');
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/home`, {
+      method: 'GET',
+      headers: {
+        'Authorization': process.env.NEXT_PUBLIC_API_KEY,
+        'Content-Type': 'application/json',
+      },
+      // next: { revalidate: 600 }, // ISR approach
+    });
+
+    if (!res.ok) {
+      const errorBody = await res.text();
+      console.error(`Error response body: ${errorBody}`);
+      throw new Error(`Failed to fetch home data: ${res.status} ${res.statusText}`);
     }
-}
-  // if (!process.env.NEXT_PUBLIC_API_BASE_URL || !process.env.NEXT_PUBLIC_API_KEY) {
-  //   throw new Error('Missing API environment variables: NEXT_PUBLIC_API_BASE_URL or NEXT_PUBLIC_API_KEY');
-  // }
 
-  // console.log('Fetching home data');
-  // try {
-  //   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/home`, {
-  //     method: 'GET',
-  //     headers: {
-  //       'Authorization': process.env.NEXT_PUBLIC_API_KEY,
-  //       'Content-Type': 'application/json',
-  //     },
-  //     // next: { revalidate: 600 }, // ISR approach
-  //   });
-
-  //   if (!res.ok) {
-  //     const errorBody = await res.text();
-  //     console.error(`Error response body: ${errorBody}`);
-  //     throw new Error(`Failed to fetch home data: ${res.status} ${res.statusText}`);
-  //   }
-
-  //   return res.json();
-  // } catch (error) {
-  //   console.error('Error fetching home data:', error.message);
-  //   return { success: false, message: error.message, data: { blogs: [] } };
-  // }
+    return res.json();
+  } catch (error) {
+    console.error('Error fetching home data:', error.message);
+    return { success: false, message: error.message, data: { blogs: [] } };
+  }
 }
 
 export default async function Home() {
