@@ -1,5 +1,16 @@
 export const metadata = {
-  title: "Privacy Policy",
+  title: "Privacy Policy - Xtreme Gen AI",
+  description: "Read our Privacy Policy to understand how Xtreme Gen AI collects, uses, and protects your data in compliance with the Digital Personal Data Protection Act, 2023.",
+  openGraph: {
+    title: "Privacy Policy - Xtreme Gen AI",
+    description: "Read our Privacy Policy to understand how Xtreme Gen AI collects, uses, and protects your data in compliance with the Digital Personal Data Protection Act, 2023.",
+    url: "https://xtremegenai.com/privacy-policy",
+    type: "website",
+    siteName: "Xtreme Gen AI",
+  },
+  alternates: {
+    canonical: "https://xtremegenai.com/privacy-policy",
+  },
 };
 
 const sections = [
