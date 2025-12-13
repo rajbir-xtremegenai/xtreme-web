@@ -86,7 +86,7 @@ export default async function BlogsPage({ searchParams: searchParamsPromise }) {
 
   return (
     <main className="min-h-screen bg-[var(--color-bg-dark)] text-white selection:bg-[var(--color-clr1)] selection:text-white">
-      <div className="max-w-5xl mx-auto pt-28">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pb-24">
         <article className="bg-white/5 border border-white/10 backdrop-blur-md rounded-2xl shadow-2xl shadow-black/30 p-6 sm:p-10">
           <div className="flex flex-row justify-between items-center mb-4">
             <nav aria-label="Breadcrumb">

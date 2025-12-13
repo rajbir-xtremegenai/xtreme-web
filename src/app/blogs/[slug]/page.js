@@ -180,7 +180,7 @@ export default async function BlogPage({ params }) {
         <div className="absolute bottom-0 right-10 h-72 w-72 rounded-full bg-[var(--color-clr2)] blur-3xl" />
       </div>
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 sm:px-10 lg:px-16 pt-28 pb-16">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 md:pb-24">
         {/* ✅ Your JSON-LD scripts remain unchanged */}
         <script
           type="application/ld+json"
