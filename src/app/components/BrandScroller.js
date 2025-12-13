@@ -9,7 +9,7 @@ const BrandScroller = () => {
     // scale = Size on Desktop/Tablet
     // mobileScale = Size on Mobile (phones)
     // 1 = Default. 1.3 = 30% larger.
-    
+
     // Adjusted mobileScale for larger logos to prevent them from being too big/meshed
     const clientsTop = [
         { name: "DRA Homes", logo: "/brands/DRAhomes.png", scale: 1, mobileScale: 1.2 },
@@ -41,32 +41,11 @@ const BrandScroller = () => {
 
         return (
             <div className="group relative flex items-center justify-center">
-                <div className="
-                    w-full
-                    h-20 sm:h-24 md:h-28 lg:h-32 
-                    bg-gray-300/20 
-                    border border-gray-500/40 
-                    rounded-lg 
-                    p-2 sm:p-4  
-                    flex items-center justify-center
-                    transition-all duration-300
-                    hover:border-gray-400/60
-                    hover:bg-gray-300/25
-                    shadow-[0_0_10px_rgba(255,255,255,0.08),inset_0_0_10px_rgba(255,255,255,0.02)]
-                    hover:shadow-[0_0_15px_rgba(255,255,255,0.12),inset_0_0_15px_rgba(255,255,255,0.03)]
-                ">
+                <div className="w-full h-20 sm:h-24 md:h-28 lg:h-32 bg-gray-300/20 border border-gray-500/40 rounded-lg p-2 sm:p-4 flex items-center justify-center transition-all duration-300 hover:border-gray-400/60 hover:bg-gray-300/25 shadow-[0_0_10px_rgba(255,255,255,0.08),inset_0_0_10px_rgba(255,255,255,0.02)] hover:shadow-[0_0_15px_rgba(255,255,255,0.12),inset_0_0_15px_rgba(255,255,255,0.03)]">
                     {/* 1. We apply the CSS variables to this wrapper.
                        2. We use tailwind arbitrary values `scale-[...]` to read those variables.
                     */}
-                    <div 
-                        className="
-                            relative w-full h-full flex items-center justify-center 
-                            transition-transform duration-300
-                            scale-[var(--mobile-scale)] 
-                            md:scale-[var(--desktop-scale)]
-                        "
-                        style={style}
-                    >
+                    <div className="relative w-full h-full flex items-center justify-center transition-transform duration-300 scale-[var(--mobile-scale)] md:scale-[var(--desktop-scale)]" style={style}>
                         <Image
                             src={client.logo}
                             alt={client.name}
@@ -87,7 +66,7 @@ const BrandScroller = () => {
             </h2>
 
             <div className="max-w-7xl mx-auto flex flex-col gap-3 sm:gap-5">
-                
+
                 {/* Row 1 Grid */}
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 md:gap-5">
                     {clientsTop.map((client, index) => (
