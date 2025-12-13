@@ -6,6 +6,7 @@ import Cta from './components/Cta';
 import WhyUs from './components/WhyUs';
 import Blogs from './components/Blogs';
 import BrandScroller from './components/BrandScroller';
+import Partners from './components/Partners';
 
 export const metadata = {
   title: "Call The Future Now: Human-Like AI Agents by Xtreme Gen AI",
@@ -88,6 +89,9 @@ export default async function Home() {
 
         <div id="usecase" className="scroll-mt-24"></div>
         <Usecase />
+
+        <div id="partners" className="scroll-mt-24"></div>
+        <Partners />
 
         <div id="whyus" className="scroll-mt-24"></div>
         <WhyUs />
