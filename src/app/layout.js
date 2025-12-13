@@ -1,8 +1,7 @@
 import { Lexend, Outfit } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/Navbar";
 import Script from "next/script";
-import Footer from './components/Footer';
+import ConditionalLayout from "./components/ConditionalLayout";
 
 const lexend = Lexend({
   variable: "--font-lexend",
@@ -72,9 +71,9 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body className={`${lexend.variable} ${outfit.variable} antialiased`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <ConditionalLayout>
+          {children}
+        </ConditionalLayout>
       </body>
     </html>
   );

@@ -183,135 +183,133 @@ export default function ManageFaqsPage() {
 
     return (
         <div className="min-h-screen bg-gray-100 p-4 md:p-6 lg:p-8">
-            <div className='mt-20'>
-                <header className="mb-8 flex justify-between items-center">
-                    <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
-                        Manage FAQs for <span className="text-indigo-600">{slug}</span>
-                    </h1>
-                    <Link href={isCar ? "/dashboard/my-all-listing" : "/dashboard/manage-blogs"}>
-                        <div className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors duration-150">
-                            {isCar ? "Back to Listings" : "Back to Blogs"}
+            <header className="mb-8 flex justify-between items-center">
+                <h1 className="text-2xl sm:text-3xl font-bold text-gray-800">
+                    Manage FAQs for <span className="text-indigo-600">{slug}</span>
+                </h1>
+                <Link href={isCar ? "/dashboard/my-all-listing" : "/dashboard/manage-blogs"}>
+                    <div className="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50 transition-colors duration-150">
+                        {isCar ? "Back to Listings" : "Back to Blogs"}
+                    </div>
+                </Link>
+            </header>
+
+            <main>
+                <button
+                    onClick={toggleAddForm}
+                    className="mb-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-150"
+                >
+                    {showAddForm ? (isEditing ? 'Cancel Edit' : 'Cancel Add') : 'Add New FAQ'}
+                </button>
+
+                {showAddForm && (
+                    <form onSubmit={handleSubmit} className="mb-8 p-6 bg-white rounded-lg shadow-xl">
+                        <h2 className="text-xl font-semibold mb-6 text-gray-700">{isEditing ? 'Update FAQ' : 'Add New FAQ'}</h2>
+                        {error && <p className="text-red-500 bg-red-100 p-3 rounded mb-4 border border-red-300">{error}</p>}
+                        <div className="mb-4">
+                            <label htmlFor="ques" className="block text-sm font-medium text-gray-700 mb-1">Question*</label>
+                            <input
+                                type="text"
+                                name="ques"
+                                id="ques"
+                                value={currentFaq.ques}
+                                onChange={handleInputChange}
+                                className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-700"
+                                placeholder="Enter the question"
+                                required
+                            />
                         </div>
-                    </Link>
-                </header>
-
-                <main>
-                    <button
-                        onClick={toggleAddForm}
-                        className="mb-6 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition-colors duration-150"
-                    >
-                        {showAddForm ? (isEditing ? 'Cancel Edit' : 'Cancel Add') : 'Add New FAQ'}
-                    </button>
-
-                    {showAddForm && (
-                        <form onSubmit={handleSubmit} className="mb-8 p-6 bg-white rounded-lg shadow-xl">
-                            <h2 className="text-xl font-semibold mb-6 text-gray-700">{isEditing ? 'Update FAQ' : 'Add New FAQ'}</h2>
-                            {error && <p className="text-red-500 bg-red-100 p-3 rounded mb-4 border border-red-300">{error}</p>}
-                            <div className="mb-4">
-                                <label htmlFor="ques" className="block text-sm font-medium text-gray-700 mb-1">Question*</label>
-                                <input
-                                    type="text"
-                                    name="ques"
-                                    id="ques"
-                                    value={currentFaq.ques}
-                                    onChange={handleInputChange}
-                                    className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-700"
-                                    placeholder="Enter the question"
-                                    required
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <label htmlFor="ans" className="block text-sm font-medium text-gray-700 mb-1">Answer*</label>
-                                <textarea
-                                    name="ans"
-                                    id="ans"
-                                    value={currentFaq.ans}
-                                    onChange={handleInputChange}
-                                    className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-700"
-                                    placeholder="Enter the answer"
-                                    required
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <label htmlFor="order" className="block text-sm font-medium text-gray-700 mb-1">Order*</label>
-                                <input
-                                    type="number"
-                                    name="order"
-                                    id="order"
-                                    value={currentFaq.order}
-                                    onChange={handleInputChange}
-                                    className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-700"
-                                    placeholder="Enter the display order"
-                                    required
-                                />
-                            </div>
+                        <div className="mb-4">
+                            <label htmlFor="ans" className="block text-sm font-medium text-gray-700 mb-1">Answer*</label>
+                            <textarea
+                                name="ans"
+                                id="ans"
+                                value={currentFaq.ans}
+                                onChange={handleInputChange}
+                                className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-700"
+                                placeholder="Enter the answer"
+                                required
+                            />
+                        </div>
+                        <div className="mb-4">
+                            <label htmlFor="order" className="block text-sm font-medium text-gray-700 mb-1">Order*</label>
+                            <input
+                                type="number"
+                                name="order"
+                                id="order"
+                                value={currentFaq.order}
+                                onChange={handleInputChange}
+                                className="mt-1 block w-full px-4 py-2 border border-gray-500 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm text-gray-700"
+                                placeholder="Enter the display order"
+                                required
+                            />
+                        </div>
+                        <button
+                            type="submit"
+                            disabled={isLoading}
+                            className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-150 disabled:opacity-60"
+                        >
+                            {isLoading ? 'Saving...' : (isEditing ? 'Update FAQ' : 'Save New FAQ')}
+                        </button>
+                        {isEditing && (
                             <button
-                                type="submit"
-                                disabled={isLoading}
-                                className="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2.5 px-4 rounded focus:outline-none focus:ring-2 focus:ring-green-500 focus:ring-opacity-50 transition-colors duration-150 disabled:opacity-60"
+                                type="button"
+                                onClick={toggleAddForm}
+                                className="mt-3 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2.5 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors duration-150"
                             >
-                                {isLoading ? 'Saving...' : (isEditing ? 'Update FAQ' : 'Save New FAQ')}
+                                Cancel Edit & Close Form
                             </button>
-                            {isEditing && (
-                                <button
-                                    type="button"
-                                    onClick={toggleAddForm}
-                                    className="mt-3 w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2.5 px-4 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 transition-colors duration-150"
-                                >
-                                    Cancel Edit & Close Form
-                                </button>
-                            )}
-                        </form>
-                    )}
+                        )}
+                    </form>
+                )}
 
-                    <h2 className="text-xl font-semibold mb-6 text-gray-800">Existing FAQs</h2>
-                    {isLoading && faqs.length === 0 && <p className="text-center text-gray-600 py-4">Loading FAQs...</p>}
-                    {!isLoading && error && faqs.length === 0 && <p className="text-red-600 bg-red-50 p-4 rounded-md shadow text-center">{error}</p>}
+                <h2 className="text-xl font-semibold mb-6 text-gray-800">Existing FAQs</h2>
+                {isLoading && faqs.length === 0 && <p className="text-center text-gray-600 py-4">Loading FAQs...</p>}
+                {!isLoading && error && faqs.length === 0 && <p className="text-red-600 bg-red-50 p-4 rounded-md shadow text-center">{error}</p>}
 
-                    {faqs.length > 0 ? (
-                        <div className="space-y-6">
-                            {faqs.map((faq) => (
-                                <div key={faq.id} className="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-                                    <div className="flex flex-col md:flex-row md:items-start gap-4">
-                                        <div className="flex-grow">
-                                            <p className="text-sm text-gray-700 mt-1">
-                                                <span className="font-medium">Question:</span> {faq.ques}
-                                            </p>
-                                            <p className="text-sm text-gray-700 mt-1 break-words">
-                                                <span className="font-medium">Answer:</span> {faq.ans}
-                                            </p>
-                                            <p className="text-sm text-gray-700 mt-1">
-                                                <span className="font-medium">Order:</span> {faq.order}
-                                            </p>
-                                            <div className="text-xs text-gray-500 mt-2">
-                                                <p>Created: {new Date(faq.createdAt).toLocaleString()}</p>
-                                                <p>Updated: {new Date(faq.updatedAt).toLocaleString()}</p>
-                                            </div>
-                                        </div>
-                                        <div className="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col space-y-2 sm:space-y-0 sm:space-x-2 md:space-y-2 md:space-x-0 items-stretch md:items-end">
-                                            <button
-                                                onClick={() => handleEdit(faq)}
-                                                className="w-full sm:w-auto md:w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-colors duration-150"
-                                            >
-                                                Update
-                                            </button>
-                                            <button
-                                                onClick={() => handleDelete(faq.id)}
-                                                disabled={isLoading}
-                                                className="w-full sm:w-auto md:w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-150 disabled:opacity-60"
-                                            >
-                                                Delete
-                                            </button>
+                {faqs.length > 0 ? (
+                    <div className="space-y-6">
+                        {faqs.map((faq) => (
+                            <div key={faq.id} className="bg-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                                <div className="flex flex-col md:flex-row md:items-start gap-4">
+                                    <div className="flex-grow">
+                                        <p className="text-sm text-gray-700 mt-1">
+                                            <span className="font-medium">Question:</span> {faq.ques}
+                                        </p>
+                                        <p className="text-sm text-gray-700 mt-1 break-words">
+                                            <span className="font-medium">Answer:</span> {faq.ans}
+                                        </p>
+                                        <p className="text-sm text-gray-700 mt-1">
+                                            <span className="font-medium">Order:</span> {faq.order}
+                                        </p>
+                                        <div className="text-xs text-gray-500 mt-2">
+                                            <p>Created: {new Date(faq.createdAt).toLocaleString()}</p>
+                                            <p>Updated: {new Date(faq.updatedAt).toLocaleString()}</p>
                                         </div>
                                     </div>
+                                    <div className="mt-4 md:mt-0 flex flex-col sm:flex-row md:flex-col space-y-2 sm:space-y-0 sm:space-x-2 md:space-y-2 md:space-x-0 items-stretch md:items-end">
+                                        <button
+                                            onClick={() => handleEdit(faq)}
+                                            className="w-full sm:w-auto md:w-full bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded text-sm focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50 transition-colors duration-150"
+                                        >
+                                            Update
+                                        </button>
+                                        <button
+                                            onClick={() => handleDelete(faq.id)}
+                                            disabled={isLoading}
+                                            className="w-full sm:w-auto md:w-full bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded text-sm focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50 transition-colors duration-150 disabled:opacity-60"
+                                        >
+                                            Delete
+                                        </button>
+                                    </div>
                                 </div>
-                            ))}
-                        </div>
-                    ) : (
-                        !isLoading && !error && <p className="text-center text-gray-600 py-4 bg-white rounded-md shadow">No FAQs found. Click "Add New FAQ" to create one.</p>
-                    )}
-                </main>
-            </div>
+                            </div>
+                        ))}
+                    </div>
+                ) : (
+                    !isLoading && !error && <p className="text-center text-gray-600 py-4 bg-white rounded-md shadow">No FAQs found. Click "Add New FAQ" to create one.</p>
+                )}
+            </main>
         </div>
     );
 }
